@@ -465,16 +465,16 @@ var A=load("answers")||{};
 /* prezzi totali della camera per 2 persone per tutte le notti della tappa, visti su Booking il 24/11/2026 con sconti Black Friday: da riverificare */
 var CITY=["sev","cor","mal","ron","mar"];
 var HOTELS={
- sev:{city:"Siviglia",nights:2,when:"Dom 14 e lun 15",img:"p_santa_cruz",note:"L'auto qui non serve: la ritirate martedì in aeroporto.",
+ sev:{ci:"2027-03-14",co:"2027-03-16",city:"Siviglia",nights:2,when:"Dom 14 e lun 15",img:"p_santa_cruz",note:"L'auto qui non serve: la ritirate martedì in aeroporto.",
   opts:[{name:"Patio de las Cruces",score:8.3,tot:124},{name:"Madrid de Sevilla by SHS",score:8.4,tot:148,pick:1},{name:"Petit Palace Vargas",score:9.0,tot:186}]},
- cor:{city:"Córdoba",nights:1,when:"Mar 16",img:"p_flores",note:"Il centro storico è zona ACIRE con telecamere: chiedete all'hotel dove lasciare l'auto e se va comunicata la targa.",
+ cor:{ci:"2027-03-16",co:"2027-03-17",city:"Córdoba",nights:1,when:"Mar 16",img:"p_flores",note:"Il centro storico è zona ACIRE con telecamere: chiedete all'hotel dove lasciare l'auto e se va comunicata la targa.",
   opts:[{name:"Hotel Selu",score:8.9,tot:52},{name:"Hotel Suite Generis",score:8.9,tot:54,pick:1},{name:"Casa Museo de la Mezquita",score:8.6,tot:59}]},
- mal:{city:"Malaga",nights:1,when:"Mer 17",img:"p_gibralfaro",note:"Parcheggio: chiedete all'hotel o usate un garage del centro (12–22 € al giorno).",
+ mal:{ci:"2027-03-17",co:"2027-03-18",city:"Malaga",nights:1,when:"Mer 17",img:"p_gibralfaro",note:"Parcheggio: chiedete all'hotel o usate un garage del centro (12–22 € al giorno).",
   opts:[{name:"Hostal Vidamia",score:8.0,tot:75},{name:"Goartín",score:8.3,tot:85},{name:"Zenit Málaga",score:8.5,tot:86,pick:1}]},
- ron:{city:"Ronda",nights:1,when:"Gio 18",img:"p_puente_nuevo",note:"In auto non si passa sul Puente Nuevo: l'Hotel Andalucía è già sul lato giusto, per gli altri due verificate lato e parcheggio.",
-  opts:[{name:"Hotel Molino",score:8.4,tot:58},{name:"El Tajo & Spa",score:8.2,tot:58},{name:"Hotel Andalucía",score:8.4,tot:60,pick:1,det:"Avenida Martínez Astein 19, nel Mercadillo vicino alla stazione, sulla stessa via del parcheggio pubblico Martínez Astein: niente Puente Nuevo. Area per scaricare i bagagli e parcheggio su strada facile secondo le recensioni."}]},
- mar:{city:"Marbella",nights:2,when:"Ven 19 e sab 20",img:"p_naranjos",note:"Il casco antiguo è pedonale: auto al Parking Mercado Central o La Alameda.",
-  opts:[{name:"The Old House",score:8.8,tot:160,est:"160 € stimati (80 € per venerdì, raddoppiato)"},{name:"Lucero 12",score:8.9,tot:164,est:"164 € stimati (82 € per venerdì, raddoppiato)"},{name:"Casa Postigos",score:9.1,tot:173,pick:1,det:"Verificato: matrimoniale standard da 15 m², 173 € per 2 notti (era 247 €). Parcheggio gratuito nelle vicinanze secondo le recensioni."}]}
+ ron:{ci:"2027-03-18",co:"2027-03-19",city:"Ronda",nights:1,when:"Gio 18",img:"p_puente_nuevo",note:"In auto non si passa sul Puente Nuevo: l'Hotel Andalucía è già sul lato giusto, per gli altri due verificate lato e parcheggio.",
+  opts:[{name:"Hotel Molino",score:8.4,tot:58},{name:"El Tajo & Spa",score:8.2,tot:58},{name:"Hotel Andalucía",bk:"andalucia-ronda",score:8.4,tot:60,pick:1,det:"Avenida Martínez Astein 19, nel Mercadillo vicino alla stazione, sulla stessa via del parcheggio pubblico Martínez Astein: niente Puente Nuevo. Area per scaricare i bagagli e parcheggio su strada facile secondo le recensioni."}]},
+ mar:{ci:"2027-03-19",co:"2027-03-21",city:"Marbella",nights:2,when:"Ven 19 e sab 20",img:"p_naranjos",note:"Il casco antiguo è pedonale: auto al Parking Mercado Central o La Alameda.",
+  opts:[{name:"The Old House",score:8.8,tot:160,est:"160 € stimati (80 € per venerdì, raddoppiato)"},{name:"Lucero 12",score:8.9,tot:164,est:"164 € stimati (82 € per venerdì, raddoppiato)"},{name:"Casa Postigos",bk:"casa-postigos",score:9.1,tot:173,pick:1,det:"Verificato: matrimoniale standard da 15 m², 173 € per 2 notti (era 247 €). Parcheggio gratuito nelle vicinanze secondo le recensioni."}]}
 };
 var Q={
  p1:{ch:"giorni",q:"Che ritmo vi somiglia?",o:[["calm","Con calma","Poche tappe e lunghe pause"],["full","A tutta","Vogliamo vedere tutto"]]},
@@ -940,6 +940,7 @@ function renderPiatti(body){
 }
 
 /* =================== HOTEL: tre per tappa, uno scelto =================== */
+function bookingURL(c,x){var h=HOTELS[c],q="checkin="+h.ci+"&checkout="+h.co+"&group_adults=2&no_rooms=1&group_children=0";return x.bk?"https://www.booking.com/hotel/es/"+x.bk+".it.html?"+q:"https://www.booking.com/searchresults.it.html?ss="+encodeURIComponent(x.name+", "+h.city)+"&"+q}
 var HLAB=["Economico","Medio","Il più bello"];
 function renderHotels(body){
   var P=hotelPicks();
@@ -953,7 +954,7 @@ function renderHotels(body){
    '<p class="soft">Prezzi visti su Booking il 24/11/2026 con gli sconti del Black Friday: ricontrollateli prima di pagare e scegliete la cancellazione gratuita.</p>'+
    '<div class="foot"><button type="button" class="btn wide" data-next>Avanti: il budget</button></div>';
   function sync(){var t=tot();$("#hTot",body).textContent="Totale "+t+" € a camera, cioè "+Math.round(t/2)+" € a testa.";
-    CITY.forEach(function(c){var blk=$('[data-city="'+c+'"]',body),x=HOTELS[c].opts[P[c]];$$(".hopt",blk).forEach(function(b){b.setAttribute("aria-pressed",String(+b.dataset.i===P[c]))});$(".hlinks",blk).innerHTML=links(x.name+" "+HOTELS[c].city);$(".hdet",blk).textContent=(x.det||"")+(x.est?(x.det?" ":"")+"Prezzo "+x.est+".":"")})}
+    CITY.forEach(function(c){var blk=$('[data-city="'+c+'"]',body),x=HOTELS[c].opts[P[c]];$$(".hopt",blk).forEach(function(b){b.setAttribute("aria-pressed",String(+b.dataset.i===P[c]))});$(".hlinks",blk).innerHTML='<a class="btn" href="'+bookingURL(c,x)+'" target="_blank" rel="noopener">Apri su Booking, con le vostre date</a>'+links(x.name+" "+HOTELS[c].city);$(".hdet",blk).textContent=(x.det||"")+(x.est?(x.det?" ":"")+"Prezzo "+x.est+".":"")})}
   body.onclick=function(e){var b=e.target.closest(".hopt");if(!b)return;P[b.dataset.c]=+b.dataset.i;save("hotel",P);sync();if(G)gsap.fromTo(b,{scale:.95},{scale:1,duration:.35,ease:"back.out(3)"})};
   sync();
 }
