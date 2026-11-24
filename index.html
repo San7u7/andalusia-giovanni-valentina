@@ -1,0 +1,1156 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Il viaggio in Andalusia di Giovanni e Valentina, 14–21 marzo 2027.">
+<title>Andalusia in due</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="format-detection" content="telephone=no">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: un viaggio a pagine, una schermata alla volta come le storie di un telefono.
+   Poster pop degli azulejos andalusi; grammatica Appress OS DS v1.1 (flusso, hairline,
+   superfici solo dove servono, progressive disclosure). Mobile first, iPhone. */
+:root{
+  --paper:#fff4e2;--ink:#1b1638;--cobalt:#1d4fc4;--tulip:#e4572e;
+  --saffron:#f4b223;--pistachio:#8cc66d;--rose:#ffb48a;--white:#ffffff;--ok:#1f7a3a;--warn:#8a1f12;
+  --display:"Bagel Fat One","Arial Black",Impact,sans-serif;
+  --body:"Figtree","Avenir Next","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;
+  --r-control:8px;--r-soft:14px;--r-organic:22px;--r-full:999px;
+  --pop:5px 5px 0 var(--ink);
+  --hair:rgba(27,22,56,.16);--hair-dark:rgba(255,244,226,.22);
+  --gut-l:max(18px,env(safe-area-inset-left,0px));--gut-r:max(18px,env(safe-area-inset-right,0px));
+  --bar-h:56px;
+  color-scheme:light;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}
+body{background:var(--ink);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5;overflow-x:hidden}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;touch-action:manipulation}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:.95;margin:0;text-wrap:balance}
+p{margin:0}
+.ttl:focus{outline:none}
+:focus-visible{outline:3px solid var(--tulip);outline-offset:3px;border-radius:var(--r-control)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.soft{opacity:.78;font-size:15px}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- BARRA ---------- */
+.bar{position:fixed;top:0;left:0;right:0;z-index:30;background:var(--ink);color:var(--paper);padding-top:env(safe-area-inset-top,0px);padding-left:var(--gut-l);padding-right:var(--gut-r)}
+.bar[hidden]{display:none}
+.bar .in{height:var(--bar-h);display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:var(--s3);max-width:760px;margin:0 auto}
+.back{width:44px;height:44px;border-radius:50%;border:2px solid var(--paper);background:transparent;color:var(--paper);display:grid;place-items:center;cursor:pointer;font-size:20px;font-weight:800}
+.bar .lab{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .cnt{font-family:var(--mono);font-size:12px;font-weight:700}
+.bar .prog{height:4px;background:rgba(255,243,220,.18);margin:0 calc(var(--gut-r) * -1) 0 calc(var(--gut-l) * -1)}
+.bar .prog i{display:block;height:100%;width:0;background:var(--saffron);transition:width .45s cubic-bezier(.2,1.2,.4,1)}
+
+/* ---------- PAGINE ---------- */
+.page{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;padding-left:var(--gut-l);padding-right:var(--gut-r);padding-top:calc(env(safe-area-inset-top,0px) + var(--bar-h) + 28px);padding-bottom:max(28px,env(safe-area-inset-bottom,0px))}
+.page[hidden]{display:none!important}
+.page .col{width:100%;max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:var(--s5);flex:1}
+.page.center .col{justify-content:center}
+.foot{margin-top:auto;padding-top:var(--s5);display:flex;flex-direction:column;gap:var(--s3);align-items:stretch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:56px;padding:0 var(--s6);border:3px solid var(--ink);border-radius:var(--r-full);background:var(--saffron);color:var(--ink);font-family:var(--display);font-size:24px;cursor:pointer;box-shadow:var(--pop);transition:transform .12s,box-shadow .12s;text-decoration:none}
+.btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+.btn.quiet{background:transparent;box-shadow:none;font-family:var(--body);font-weight:800;font-size:16px;min-height:48px;padding:0 var(--s5);border-width:2px}
+.btn.wide{width:100%}
+.t-blue{background:var(--cobalt);color:var(--paper)}
+.t-rose{background:var(--rose)}
+.t-green{background:var(--pistachio)}
+.t-saffron{background:var(--saffron)}
+.t-paper{background:var(--paper)}
+.t-ink{background:var(--ink);color:var(--paper)}
+.t-ink .btn.quiet{color:var(--paper);border-color:var(--paper)}
+.mid{font-size:clamp(34px,9vw,64px)}
+.lede{font-size:clamp(18px,4.6vw,21px);max-width:38ch}
+
+/* splash centrata */
+.splash{background:var(--cobalt);color:var(--paper);position:relative;overflow:hidden;padding-top:max(28px,env(safe-area-inset-top,0px))}
+.splash .tiles{position:absolute;inset:0;width:100%;height:100%;opacity:.17;pointer-events:none}
+.splash .col{position:relative;justify-content:center;align-items:center;text-align:center;gap:var(--s5)}
+.splash h1{font-size:clamp(52px,16.5vw,200px);line-height:.85;display:flex;flex-wrap:nowrap;justify-content:center}
+.splash .col{max-width:1200px}
+.splash h1 .ch{display:inline-block}
+.splash h1 .ch:nth-child(odd){color:var(--saffron)}.splash h1 .ch:nth-child(even){color:var(--rose)}
+.splash .who{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.14em}
+.splash .when{font-family:var(--display);font-size:clamp(20px,5.4vw,30px)}
+.bye{font-size:clamp(54px,14vw,120px);color:var(--saffron);line-height:.9}
+.thanks .col{gap:var(--s4)}
+.enter{font-size:30px;min-height:72px;width:100%;max-width:380px;margin-top:var(--s4)}
+.wobble{animation:wob 2.6s ease-in-out infinite}
+@keyframes wob{0%,100%{transform:rotate(-1.5deg)}50%{transform:rotate(1.5deg) scale(1.03)}}
+
+/* benvenuto */
+.names{font-family:var(--display);font-size:clamp(40px,11vw,80px);line-height:.95}
+.names em{font-style:normal;color:var(--tulip)}
+.ticket{display:grid;grid-template-columns:minmax(0,1fr) 56px;overflow:hidden;background:var(--white);border:3px solid var(--ink);border-radius:var(--r-organic);box-shadow:var(--pop)}
+.ticket .legs{padding:var(--s3) var(--s4)}
+.leg{display:grid;grid-template-columns:auto minmax(24px,1fr) auto;align-items:center;gap:var(--s3);padding-block:var(--s3)}
+.leg+.leg{border-top:2px dashed var(--hair)}
+.leg .city{font-family:var(--display);font-size:clamp(30px,8vw,46px);line-height:1}
+.leg .city small{display:block;font-family:var(--mono);font-size:11px;font-weight:700;margin-top:4px}
+.leg .city.r{text-align:right}
+.leg .md{text-align:center;font-family:var(--mono);font-size:11px;font-weight:700}
+.leg .md i{display:block;height:3px;margin:6px 0;background:repeating-linear-gradient(90deg,var(--ink) 0 8px,transparent 8px 14px)}
+.ticket .stub{background:var(--tulip);color:var(--ink);border-left:3px dashed var(--ink);display:grid;place-items:center;writing-mode:vertical-rl;font-family:var(--mono);font-weight:700;letter-spacing:.16em;font-size:11px}
+.facts{display:flex;flex-wrap:wrap;gap:var(--s2) 0;font-family:var(--display);font-size:clamp(18px,4.8vw,24px)}
+.facts span{display:inline-flex;align-items:center}
+.facts span+span::before{content:"";width:10px;height:10px;background:var(--tulip);transform:rotate(45deg);margin:0 var(--s3)}
+
+/* copertina */
+.cover .num-big{font-family:var(--display);font-size:clamp(120px,40vw,240px);line-height:.8}
+.cover h2{font-size:clamp(54px,15vw,110px)}
+.cover .w,.qwrap .w{display:inline-block}
+
+/* domanda */
+.qwrap{display:flex;flex-direction:column;gap:var(--s4)}
+.qwrap h2{font-size:clamp(36px,10vw,62px)}
+.opts{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s3)}
+.opt{display:flex;flex-direction:column;gap:4px;text-align:left;min-height:84px;padding:var(--s4) var(--s5);border:3px solid var(--ink);border-radius:var(--r-organic);background:var(--paper);color:var(--ink);cursor:pointer;transition:transform .12s,background .2s}
+.opt b{font-family:var(--display);font-weight:400;font-size:clamp(22px,6vw,28px);line-height:1.05}
+.opt span{font-size:15px;opacity:.82}
+.opt[aria-pressed="true"]{background:var(--ink);color:var(--paper);box-shadow:var(--pop)}
+.opt:active{transform:scale(.98)}
+.chips{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.chip{min-height:52px;padding:0 var(--s5);border:3px solid var(--ink);border-radius:var(--r-full);background:var(--paper);color:var(--ink);font-weight:800;font-size:16px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+/* hotel */
+.duel-note{font-weight:700;background:var(--white);border:3px solid var(--ink);border-radius:var(--r-soft);padding:var(--s3) var(--s4)}
+.verdict{font-family:var(--display);font-size:clamp(64px,18vw,140px);line-height:.85}
+.why p{display:grid;grid-template-columns:26px minmax(0,1fr);gap:var(--s2);padding-block:var(--s2)}
+.why p+p{border-top:2px solid var(--hair)}
+.why p::before{content:"✓";font-family:var(--display);color:var(--ok);font-size:22px;line-height:1.1}
+.why p.minus::before{content:"!";color:var(--warn)}
+.hotel{overflow:hidden;background:var(--white);border:3px solid var(--ink);border-radius:var(--r-organic);box-shadow:var(--pop)}
+.galwrap{position:relative;border-bottom:3px solid var(--ink)}
+.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.gal::-webkit-scrollbar{display:none}
+.gal img{flex:0 0 100%;width:100%;aspect-ratio:4/3;object-fit:cover;scroll-snap-align:start}
+.gnav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:3px solid var(--ink);background:var(--paper);color:var(--ink);display:grid;place-items:center;font-weight:800;font-size:20px;cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
+.gnav.prev{left:var(--s3)}.gnav.next{right:var(--s3)}
+.gnav:active{transform:translateY(-50%) scale(.92)}
+.dots{position:absolute;bottom:var(--s3);left:50%;transform:translateX(-50%);display:flex;gap:6px;background:rgba(22,18,58,.6);padding:6px 8px;border-radius:var(--r-full)}
+.dots i{width:7px;height:7px;border-radius:50%;background:var(--paper);opacity:.5}
+.dots i.on{opacity:1;background:var(--saffron)}
+.hotel .body{padding:var(--s4) var(--s5) var(--s5);display:flex;flex-direction:column;gap:var(--s3)}
+.hotel .head{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--s3)}
+.hotel .where{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;margin-top:6px}
+.score{font-family:var(--display);font-size:24px;background:var(--ink);color:var(--paper);border-radius:var(--r-soft);padding:4px 12px;line-height:1.1;white-space:nowrap}
+.seg{display:inline-flex;border:2px solid var(--ink);border-radius:var(--r-full);padding:3px;background:var(--paper);align-self:flex-start}
+.seg button{border:0;background:transparent;font-weight:700;font-size:15px;padding:0 16px;min-height:42px;border-radius:var(--r-full);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.offer{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s3);flex-wrap:wrap}
+.offer .price{font-family:var(--display);font-size:clamp(40px,11vw,54px);line-height:1}
+.offer .spec{font-weight:700}
+.paid{font-size:14px;font-weight:700;background:var(--saffron);border-radius:var(--r-control);padding:var(--s2) var(--s3)}
+.pair{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5)}
+details.more{border-top:2px solid var(--hair);padding-top:var(--s2)}
+details.more>summary{cursor:pointer;list-style:none;font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:var(--s2);min-height:48px}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::after{content:"+";font-family:var(--display);font-size:26px;line-height:1;transition:transform .2s}
+details.more[open]>summary::after{transform:rotate(45deg)}
+details.more>.inner{padding-block:var(--s2) var(--s3)}
+.t-ink details.more{border-color:var(--hair-dark)}
+.srow{display:grid;grid-template-columns:96px minmax(0,1fr);gap:var(--s3);align-items:center;padding-block:var(--s2)}
+.srow+.srow{border-top:2px solid var(--hair)}
+.srow .lab{font-weight:800;font-size:15px}
+.bars{display:grid;gap:5px}
+.br{display:grid;grid-template-columns:minmax(0,1fr) 44px;gap:var(--s2);align-items:center}
+.br .tr{height:12px;border-radius:var(--r-full);background:rgba(22,18,58,.08);overflow:hidden}
+.br .f{height:100%;border-radius:var(--r-full)}
+.br.e .f{background:var(--cobalt)}.br.a .f{background:var(--tulip)}
+.br .v{font-family:var(--mono);font-weight:700;font-size:13px;text-align:right}
+.br .v.win{color:var(--ok)}
+.legend{display:flex;gap:var(--s4);flex-wrap:wrap;font-weight:700;font-size:14px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.rv{display:grid;grid-template-columns:18px minmax(0,1fr);gap:var(--s2);padding-block:var(--s2);font-size:15px}
+.rv+.rv{border-top:2px solid var(--hair)}
+.rv::before{content:"";width:14px;height:14px;border-radius:50%;margin-top:4px;border:2px solid var(--ink);background:var(--white)}
+.rv.bad::before{background:var(--tulip)}
+.rv small{display:block;font-family:var(--mono);font-size:10px;opacity:.65;letter-spacing:.05em}
+
+/* guida */
+.days{display:flex;gap:var(--s2);overflow-x:auto;scrollbar-width:none;padding-bottom:var(--s2);scroll-snap-type:x proximity;margin-inline:calc(var(--gut-l) * -1) calc(var(--gut-r) * -1);padding-inline:var(--gut-l) var(--gut-r)}
+.days::-webkit-scrollbar{display:none}
+.days button{flex:0 0 auto;scroll-snap-align:start;border:3px solid var(--ink);background:var(--white);border-radius:var(--r-soft);padding:8px 14px;cursor:pointer;text-align:left;font-weight:700;font-size:13px;line-height:1.15;min-height:58px}
+.days button b{display:block;font-family:var(--display);font-weight:400;font-size:20px}
+.days button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.days button.sp{background:var(--saffron)}
+.days button.sp[aria-pressed="true"]{background:var(--ink)}
+.dtitle{font-size:clamp(36px,10vw,56px)}
+.fact{border-left:6px solid var(--saffron);padding-left:var(--s3);font-size:15px}
+.fact b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em}
+.note{font-size:15px;font-weight:600;background:var(--rose);border-radius:var(--r-soft);padding:var(--s3) var(--s4)}
+.stop{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s3);padding-block:var(--s3);align-items:center;width:100%;text-align:left;background:transparent;border:0;border-top:2px solid var(--hair);cursor:pointer;color:inherit}
+.stop:first-child{border-top:0}
+.stop.static{cursor:default}
+.stop .top{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s2)}
+.stop .what{font-weight:800;font-size:17px}
+.stop .d{display:block;font-size:15px;opacity:.82;margin-top:4px}
+.stop .cost{display:block;font-family:var(--mono);font-size:12px;font-weight:700;margin-top:4px}
+.stop .open{width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;font-weight:800;background:var(--paper);flex:0 0 auto}
+.tag{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:var(--r-full);padding:3px 9px;border:2px solid var(--ink);white-space:nowrap}
+.tag.in{background:var(--cobalt);color:var(--paper)}
+.tag.out{background:var(--white)}
+.tag.free{background:var(--pistachio)}
+.tag.gem{background:var(--saffron)}
+.tag.go{background:var(--paper);border-style:dashed}
+.keys{display:flex;flex-wrap:wrap;gap:var(--s2);align-items:center}
+.meal{display:grid;grid-template-columns:76px minmax(0,1fr);gap:var(--s3);padding-block:var(--s3);align-items:baseline}
+.meal+.meal{border-top:2px solid var(--hair)}
+.meal b{font-family:var(--mono);font-size:11px;letter-spacing:.1em}
+.meal .n{font-family:var(--display);font-size:22px;line-height:1.05;display:block}
+.meal .z{display:block;font-family:var(--mono);font-size:11px;font-weight:700;margin-top:2px}
+.meal .t{display:block;font-size:15px;margin-top:2px}
+.meal .w{display:block;font-size:13px;font-weight:700;margin-top:2px;color:var(--warn)}
+.dayblock{padding-block:var(--s4)}
+.dayblock+.dayblock{border-top:3px solid var(--ink)}
+.dayblock h3{font-size:clamp(24px,6.5vw,32px)}
+.lnk{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s2)}
+.lnk a{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border:2px solid var(--ink);border-radius:var(--r-full);background:var(--white);font-size:13px;font-weight:800;text-decoration:none}
+.warnbox{background:var(--white);border:3px solid var(--warn);border-radius:var(--r-organic);padding:var(--s5);display:flex;flex-direction:column;gap:var(--s3)}
+.warnbox .eyebrow{color:var(--warn)}
+.tipgroup{padding-block:var(--s4)}
+.tipgroup+.tipgroup{border-top:3px solid var(--ink)}
+.tiph{display:flex;align-items:center;gap:var(--s3);font-size:clamp(28px,7.5vw,40px);margin-bottom:var(--s2)}
+.tipn{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--tulip);color:var(--ink);font-size:22px;flex:0 0 auto}
+.tip{display:grid;gap:2px;padding-block:var(--s3)}
+.tip+.tip{border-top:2px solid var(--hair)}
+.tip b{font-weight:800;font-size:17px}
+.tip span{font-size:15px;opacity:.85}
+
+/* scheda di approfondimento */
+dialog.sheet{border:0;padding:0;margin:auto auto 0;width:100%;max-width:640px;max-height:88vh;max-height:88dvh;border-radius:var(--r-organic) var(--r-organic) 0 0;background:var(--paper);color:var(--ink);border-top:3px solid var(--ink);overflow:auto}
+dialog.sheet::backdrop{background:rgba(22,18,58,.6)}
+@media (min-width:700px){dialog.sheet{margin:auto;border-radius:var(--r-organic);border:3px solid var(--ink);box-shadow:var(--pop)}}
+.sheet .in{padding:var(--s5) var(--gut-r) max(var(--s5),env(safe-area-inset-bottom,0px)) var(--gut-l);display:flex;flex-direction:column;gap:var(--s4)}
+.sheet .grab{width:44px;height:5px;border-radius:3px;background:var(--hair);margin:0 auto}
+.sheet h3{font-size:clamp(30px,8vw,44px)}
+.sheet .txt p+p{margin-top:var(--s3)}
+.sheet .acts{display:grid;gap:var(--s2)}
+.sheet .acts .btn{font-size:20px;min-height:52px}
+.sheet .x{position:sticky;top:0;align-self:flex-end;width:44px;height:44px;border-radius:50%;border:2px solid var(--ink);background:var(--white);font-size:20px;font-weight:800;cursor:pointer}
+
+/* elenchi tabellari appendice */
+.tbl{display:grid}
+.tbl .r{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s3);padding-block:var(--s3);border-top:2px solid var(--hair)}
+.tbl .r:first-child{border-top:0}
+.tbl .r b{display:block}
+.tbl .r small{display:block;font-size:14px;opacity:.8}
+.tbl .r .v{font-family:var(--mono);font-weight:700;white-space:nowrap;text-align:right}
+.cheap{background:var(--white);border:3px solid var(--ink);border-radius:var(--r-organic);box-shadow:var(--pop);padding:var(--s5)}
+.cheap .big{font-family:var(--display);font-size:clamp(52px,14vw,88px);line-height:.9}
+.timeline .r{grid-template-columns:64px minmax(0,1fr)}
+.timeline .r .v{text-align:left}
+
+/* riepilogo e lista */
+.srec{display:grid;grid-template-columns:110px minmax(0,1fr);gap:var(--s3);padding-block:var(--s3)}
+.srec+.srec{border-top:1px solid var(--hair-dark)}
+.srec b{font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding-top:4px;opacity:.75}
+.srec span{font-weight:700}
+.money{background:var(--saffron);color:var(--ink);border:3px solid var(--ink);border-radius:var(--r-organic);box-shadow:5px 5px 0 var(--paper);padding:var(--s5)}
+.money .big{font-family:var(--display);font-size:clamp(48px,13vw,84px);line-height:.9}
+.money .row{display:flex;justify-content:space-between;gap:var(--s3);padding-block:6px;font-weight:600}
+.money .row+.row{border-top:2px solid var(--hair)}
+.check{display:grid;grid-template-columns:30px minmax(0,1fr);gap:var(--s3);padding-block:var(--s3);border-bottom:2px solid var(--hair);cursor:pointer}
+.check input{appearance:none;-webkit-appearance:none;width:26px;height:26px;border:3px solid var(--ink);border-radius:var(--r-control);background:var(--white);cursor:pointer;margin:2px 0 0;display:grid;place-items:center}
+.check input:checked{background:var(--ink)}
+.check input:checked::after{content:"";width:11px;height:6px;border-left:3px solid var(--pistachio);border-bottom:3px solid var(--pistachio);transform:rotate(-45deg) translate(1px,-1px)}
+.check:has(input:checked) .txt{text-decoration:line-through;opacity:.55}
+.check .txt b{display:block}
+.check .txt span{font-size:15px;opacity:.8}
+.count{font-family:var(--mono);font-size:13px;font-weight:700}
+
+/* ---------- v9: match, nastro, storie ---------- */
+.noimg{visibility:hidden}
+.nophoto{display:block;background-color:var(--cobalt);background-image:radial-gradient(var(--saffron) 3px,transparent 4px),radial-gradient(var(--rose) 2px,transparent 3px);background-size:32px 32px,32px 32px;background-position:0 0,16px 16px}
+.card .nophoto{position:absolute;inset:0}
+.mtap .nophoto,.hcard .nophoto{width:100%;aspect-ratio:4/3}
+.nrow .nophoto.thumb,.oitem .nophoto.thumb{flex:0 0 auto}
+.deck{display:flex;flex-direction:column;align-items:center;gap:var(--s3)}
+.stack{position:relative;width:min(100%,360px,calc((100vh - 470px) * .8));width:min(100%,360px,calc((100dvh - 470px) * .8));min-width:220px;aspect-ratio:4/5}
+.card{position:absolute;inset:0;border:3px solid var(--ink);border-radius:var(--r-organic);overflow:hidden;background:var(--cobalt);box-shadow:var(--pop);touch-action:pan-y;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.card:not(.top){transform:scale(.94) translateY(14px);filter:brightness(.92)}
+.card.top{will-change:transform}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.card .ov{position:absolute;left:0;right:0;bottom:0;padding:56px var(--s4) var(--s4);background:linear-gradient(to top,rgba(22,18,58,.92),rgba(22,18,58,.55) 60%,transparent);color:var(--paper);display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.card .ov h3{font-size:clamp(28px,8vw,38px);color:var(--paper)}
+.card .ov p{font-size:15px;line-height:1.35}
+.card .ov .cost{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--saffron)}
+.card .cr{position:absolute;top:8px;right:10px;font-size:9px;color:var(--paper);opacity:.75;max-width:70%;text-align:right;text-shadow:0 1px 2px #000}
+.stamp{position:absolute;top:24px;padding:4px 14px;border:4px solid;border-radius:12px;font-family:var(--display);font-size:34px;opacity:0;transition:opacity .15s;z-index:2}
+.stamp.like{left:18px;color:var(--pistachio);border-color:var(--pistachio);transform:rotate(-14deg)}
+.stamp.nope{right:18px;color:var(--tulip);border-color:var(--tulip);transform:rotate(14deg)}
+.card.l .stamp.like,.card.n .stamp.nope{opacity:1}
+.dcount{font-family:var(--mono);font-size:12px;font-weight:700}
+#dayView .stack{width:min(100%,320px,calc((100vh - 540px) * .8));width:min(100%,320px,calc((100dvh - 540px) * .8));min-width:200px}
+#dayView .dhint{display:none}
+#dayView .dbtn{width:60px;height:60px}
+.dbtns{display:flex;gap:var(--s5);align-items:center}
+.dbtn{width:68px;height:68px;border-radius:50%;border:3px solid var(--ink);background:var(--white);font-size:28px;font-weight:800;cursor:pointer;box-shadow:var(--pop);display:grid;place-items:center}
+.dbtn.no{color:var(--tulip)}.dbtn.yes{color:var(--ok);background:var(--pistachio)}
+.dbtn.info{width:48px;height:48px;font-size:18px;font-family:var(--display)}
+.dbtn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+.dhint{font-size:13px;opacity:.7}
+.dhead{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--s3)}
+.fact-btn{width:48px;height:48px;border-radius:50%;border:3px solid var(--ink);background:var(--saffron);font-family:var(--display);font-size:24px;cursor:pointer;flex:0 0 auto;box-shadow:3px 3px 0 var(--ink)}
+.pill-warn{font-size:14px;font-weight:700;background:var(--rose);border-radius:var(--r-full);padding:6px 14px;align-self:flex-start}
+.nastro{position:relative;display:flex;flex-direction:column;gap:0;padding-left:18px}
+.nastro::before{content:"";position:absolute;left:30px;top:20px;bottom:20px;width:4px;background:var(--ink);border-radius:2px}
+.nrow{position:relative;display:grid;grid-template-columns:56px minmax(0,1fr) 24px;gap:var(--s3);align-items:center;padding-block:10px;background:transparent;border:0;text-align:left;cursor:pointer;color:inherit;width:100%;margin-left:-18px;padding-left:4px}
+.nrow .thumb{width:56px;height:56px;border-radius:50%;object-fit:cover;border:3px solid var(--ink);background:var(--cobalt);position:relative;z-index:1}
+.nrow .nic{width:56px;height:56px;border-radius:50%;border:3px solid var(--ink);background:var(--paper);display:grid;place-items:center;position:relative;z-index:1}
+.nrow .nic svg{width:24px;height:24px}
+.nrow.meal-pin .nic{background:var(--rose)}
+.nrow.go{cursor:default;opacity:.8}
+.nrow .nt b{display:block;font-weight:800;font-size:16px;line-height:1.2}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:5px}
+.cchip{font-family:var(--mono);font-size:10.5px;font-weight:700;border:2px solid var(--ink);border-radius:var(--r-full);padding:2px 8px;background:var(--white)}
+.cchip.warnc{background:var(--rose)}
+.go-i{font-family:var(--display);font-size:26px}
+.big-fact{font-family:var(--display);font-size:clamp(24px,6.5vw,32px);line-height:1.15}
+.sheet .simg{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:var(--r-soft);border:3px solid var(--ink)}
+.credits p{font-size:12px;padding-block:4px;border-top:1px solid var(--hair-dark)}
+.sheet .scr{font-size:11px;opacity:.6;margin-top:-8px}
+.mday{padding-block:var(--s3)}
+.mday+.mday{border-top:2px solid var(--hair)}
+.mrow{display:flex;gap:var(--s3);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:var(--s2) 4px var(--s3);margin-top:var(--s2)}
+.mrow::-webkit-scrollbar{display:none}
+.mcard{position:relative;flex:0 0 62%;max-width:240px;scroll-snap-align:start}
+.mtap{display:block;width:100%;padding:0;border:3px solid var(--ink);border-radius:var(--r-soft);overflow:hidden;background:var(--white);cursor:pointer;text-align:left;box-shadow:4px 4px 0 var(--ink)}
+.mtap img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--cobalt)}
+.mlab{position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:var(--ink);color:var(--paper);border-radius:var(--r-full);padding:3px 9px}
+.mbody{display:flex;align-items:center;gap:8px;padding:10px 12px}
+.mbody b{flex:1;font-weight:800;font-size:15px;line-height:1.2}
+.mbody span{font-family:var(--display);font-size:18px}
+.mwarn{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--tulip);color:var(--ink);font-family:var(--display);font-size:14px!important}
+.swap{position:absolute;top:8px;right:8px;width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);background:var(--saffron);font-size:20px;font-weight:800;cursor:pointer}
+.order{display:grid;gap:0}
+.oitem{display:grid;grid-template-columns:64px minmax(0,1fr);gap:var(--s3);align-items:center;padding-block:10px;border-top:2px solid var(--hair)}
+.oitem:first-child{border-top:0}
+.oitem .thumb{width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--ink);background:var(--cobalt)}
+.oitem b{display:block;font-family:var(--display);font-size:clamp(26px,7vw,34px);line-height:1}
+.oitem small{display:block;font-size:14px;opacity:.75;margin-top:2px}
+.hrow{display:flex;gap:var(--s3);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 4px var(--s3)}
+.hrow::-webkit-scrollbar{display:none}
+.hcard{flex:0 0 60%;max-width:230px;scroll-snap-align:start;padding:0;border:3px solid var(--ink);border-radius:var(--r-soft);overflow:hidden;background:var(--white);text-align:left;cursor:pointer;box-shadow:4px 4px 0 var(--ink);display:flex;flex-direction:column}
+.hcard img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--cobalt)}
+.hcard>span:last-child{padding:10px 12px}
+.hcard b{display:block;font-weight:800;font-size:15px}
+.hcard small{display:block;font-size:12px;opacity:.75}
+.hcard.static{cursor:default}
+.lab-ico{display:grid;place-items:center;height:80px;background:var(--saffron)}
+.lab-ico svg{width:36px;height:36px}
+.srow2{border-top:2px solid var(--hair);padding-bottom:8px}
+.srow2:first-child{border-top:0}
+.srow2 .lnk{margin:0 0 0 72px}
+details.warnbox summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:4px}
+details.warnbox summary::-webkit-details-marker{display:none}
+details.warnbox p{margin-top:var(--s3);font-size:15px}
+.circles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s4) var(--s3)}
+.circle{display:flex;flex-direction:column;align-items:center;gap:6px;background:transparent;border:0;cursor:pointer;text-align:center}
+.circle .ring{width:84px;height:84px;border-radius:50%;padding:5px;background:conic-gradient(var(--tulip),var(--saffron),var(--rose),var(--tulip));display:grid;place-items:center}
+.circle.seen .ring{background:var(--pistachio)}
+.circle .cn{width:100%;height:100%;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--display);font-size:32px;border:4px solid var(--paper)}
+.circle b{font-weight:800;font-size:15px}
+.circle small{font-size:12px;opacity:.7}
+.story{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;padding:calc(env(safe-area-inset-top,0px) + 12px) var(--gut-r) max(24px,env(safe-area-inset-bottom,0px)) var(--gut-l);color:var(--ink)}
+.story[hidden]{display:none}
+.story.st0{background:var(--saffron)}.story.st1{background:var(--rose)}.story.st2{background:var(--pistachio)}.story.st3{background:var(--paper)}
+.sbars{display:flex;gap:4px}
+.sbars i{flex:1;height:4px;border-radius:2px;background:rgba(22,18,58,.2);overflow:hidden;position:relative}
+.sbars i.full{background:var(--ink)}
+.sbars i.now{background:linear-gradient(to right,var(--ink) calc(var(--p,1)*100%),rgba(22,18,58,.2) 0)}
+.stop-row{display:flex;justify-content:space-between;align-items:center;margin-top:10px;position:relative;z-index:3}
+.sx{width:44px;height:44px;border-radius:50%;border:2px solid var(--ink);background:var(--white);font-size:18px;font-weight:800;cursor:pointer}
+.sbody{flex:1;display:flex;flex-direction:column;justify-content:center;gap:var(--s4);max-width:640px;margin:0 auto;width:100%;pointer-events:none;position:relative;z-index:1}
+.sbody h3{font-size:clamp(44px,12vw,80px);line-height:.95}
+.sbody p{font-size:clamp(20px,5.4vw,26px);font-weight:600;line-height:1.35}
+.stap{text-align:center;font-size:13px;opacity:.6}
+.sacts{display:flex;flex-direction:column;gap:var(--s2);position:relative;z-index:3;max-width:640px;margin:0 auto;width:100%}
+.szone{position:absolute;top:80px;bottom:140px;width:40%;background:transparent;border:0;z-index:2;cursor:pointer}
+.szone.prev{left:0}.szone.next{right:0;width:60%}
+.pbar{height:16px;border:3px solid var(--ink);border-radius:var(--r-full);background:var(--white);overflow:hidden}
+.pbar i{display:block;height:100%;background:var(--ink)}
+.bags{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s3)}
+.bagt{display:flex;flex-direction:column;align-items:center;gap:6px;padding:var(--s4);border:3px solid var(--ink);border-radius:var(--r-organic);background:var(--white);cursor:pointer;box-shadow:4px 4px 0 var(--ink)}
+.bagt.full{background:var(--pistachio)}
+.bagt b{font-family:var(--display);font-size:22px;font-weight:400}
+.bagt small{font-family:var(--mono);font-weight:700}
+.pring{width:64px;height:64px;transform:rotate(-90deg)}
+.pring circle{fill:none;stroke:rgba(22,18,58,.12);stroke-width:6}
+.pring circle.v{stroke:var(--ink);stroke-linecap:round}
+.costbar{display:flex;height:34px;border:3px solid var(--ink);border-radius:var(--r-full);overflow:hidden;margin-top:var(--s3)}
+.costbar i{display:block;height:100%}
+.costbar i+i{border-left:2px solid var(--ink)}
+.clegend{display:flex;flex-wrap:wrap;gap:6px;margin-top:var(--s3)}
+.cl{display:inline-flex;align-items:center;gap:6px;border:2px solid var(--ink);border-radius:var(--r-full);padding:4px 10px;background:var(--paper);font-weight:700;font-size:13px;cursor:pointer;min-height:36px}
+.cl i{width:12px;height:12px;border-radius:50%;border:2px solid var(--ink)}
+.cl b{font-family:var(--mono)}
+.ptl{position:relative;display:flex;flex-direction:column}
+.ptl::before{content:"";position:absolute;left:76px;top:14px;bottom:14px;width:4px;background:var(--ink)}
+.pt{display:grid;grid-template-columns:52px 52px minmax(0,1fr);gap:var(--s2);align-items:center;padding-block:6px}
+.ptime{font-family:var(--mono);font-weight:700;font-size:14px}
+.pdot{width:46px;height:46px;border-radius:50%;border:3px solid var(--ink);background:var(--saffron);display:grid;place-items:center;position:relative;z-index:1}
+.pdot svg{width:22px;height:22px}
+.plab{font-weight:800}
+@media (min-width:700px){.circles{grid-template-columns:repeat(6,minmax(0,1fr))}.bags{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+
+html{overflow-x:clip}
+.page{overflow-x:clip}
+/* ---------- Andalusia: hotel, budget ---------- */
+.cityblk{display:flex;flex-direction:column;gap:var(--s3);padding-block:var(--s4)}
+.cityblk+.cityblk{border-top:3px solid var(--ink)}
+.cityimg{width:100%;aspect-ratio:16/7;object-fit:cover;border:3px solid var(--ink);border-radius:var(--r-soft);background:var(--cobalt)}
+.hopts{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s2)}
+@media (min-width:700px){.hopts{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.hopt{display:flex;flex-direction:column;gap:4px;text-align:left;padding:var(--s3) var(--s4);border:3px solid var(--ink);border-radius:var(--r-soft);background:var(--white);color:var(--ink);cursor:pointer;min-height:84px}
+.hopt .hl{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.hopt b{font-family:var(--display);font-weight:400;font-size:22px;line-height:1.05}
+.hopt .hm{display:flex;justify-content:space-between;gap:var(--s2);font-weight:700;font-size:14px}
+.hopt[aria-pressed="true"]{background:var(--ink);color:var(--paper);box-shadow:var(--pop)}
+.hopt[aria-pressed="true"] .hl{color:var(--saffron)}
+.capline{display:flex;justify-content:space-between;gap:var(--s3);font-weight:700;margin:var(--s2) 0 6px}
+.capline .over{color:var(--warn)}
+.money .pbar{border-color:var(--ink)}
+.range{display:flex;flex-direction:column;gap:var(--s2);font-weight:600}
+.range input{width:100%;accent-color:var(--ink);height:32px}
+.tixlist .check:last-child{border-bottom:0}
+.tixlist .check:has(input:checked) .txt{text-decoration:none;opacity:1}
+@media (min-width:700px){.opts.two{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:900px){.pair{grid-template-columns:repeat(2,minmax(0,1fr))}.page .col.wide{max-width:1040px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bar" id="bar" hidden>
+  <div class="in"><button type="button" class="back" id="back" aria-label="Pagina precedente">←</button><span class="lab" id="barLab"></span><span class="cnt" id="barCnt"></span></div>
+  <div class="prog"><i id="barProg"></i></div>
+</div>
+<main id="app"></main>
+<dialog class="sheet" id="sheet" aria-labelledby="shTitle"><div class="in" id="shIn"></div></dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Draggable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/InertiaPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.js"></script>
+<script>
+(function(){
+document.documentElement.lang="it";
+var REDUCE=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var G=!!window.gsap&&!REDUCE;if(G&&window.SplitText)gsap.registerPlugin(SplitText);
+var COLORS=["#f4b223","#e4572e","#ffb48a","#8cc66d","#1d4fc4"];
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
+function load(k){try{var x=localStorage.getItem("and1-"+k);return x?JSON.parse(x):null}catch(e){return null}}
+function save(k,v){try{localStorage.setItem("and1-"+k,JSON.stringify(v))}catch(e){}}
+function boom(n,y){if(window.confetti&&!REDUCE)confetti({particleCount:n||120,spread:90,origin:{y:y||.6},colors:COLORS,disableForReducedMotion:true})}
+var A=load("answers")||{};
+
+/* =================== HOTEL: tre opzioni reali per città =================== */
+/* prezzi totali della camera per 2 persone per tutte le notti della tappa, visti su Booking il 24/11/2026 con sconti Black Friday: da riverificare */
+var CITY=["sev","cor","mal","ron","mar"];
+var HOTELS={
+ sev:{city:"Siviglia",nights:2,when:"Dom 14 e lun 15",img:"p_santa_cruz",note:"L'auto qui non serve: la ritirate martedì in aeroporto.",
+  opts:[{name:"Patio de las Cruces",score:8.3,tot:124},{name:"Madrid de Sevilla by SHS",score:8.4,tot:148,pick:1},{name:"Petit Palace Vargas",score:9.0,tot:186}]},
+ cor:{city:"Córdoba",nights:1,when:"Mar 16",img:"p_flores",note:"Il centro storico è zona ACIRE con telecamere: chiedete all'hotel dove lasciare l'auto e se va comunicata la targa.",
+  opts:[{name:"Hotel Selu",score:8.9,tot:52},{name:"Hotel Suite Generis",score:8.9,tot:54,pick:1},{name:"Casa Museo de la Mezquita",score:8.6,tot:59}]},
+ mal:{city:"Malaga",nights:1,when:"Mer 17",img:"p_gibralfaro",note:"Parcheggio: chiedete all'hotel o usate un garage del centro (12–22 € al giorno).",
+  opts:[{name:"Hostal Vidamia",score:8.0,tot:75},{name:"Goartín",score:8.3,tot:85},{name:"Zenit Málaga",score:8.5,tot:86,pick:1}]},
+ ron:{city:"Ronda",nights:1,when:"Gio 18",img:"p_puente_nuevo",note:"In auto non si passa sul Puente Nuevo: l'Hotel Andalucía è già sul lato giusto, per gli altri due verificate lato e parcheggio.",
+  opts:[{name:"Hotel Molino",score:8.4,tot:58},{name:"El Tajo & Spa",score:8.2,tot:58},{name:"Hotel Andalucía",score:8.4,tot:60,pick:1,det:"Avenida Martínez Astein 19, nel Mercadillo vicino alla stazione, sulla stessa via del parcheggio pubblico Martínez Astein: niente Puente Nuevo. Area per scaricare i bagagli e parcheggio su strada facile secondo le recensioni."}]},
+ mar:{city:"Marbella",nights:2,when:"Ven 19 e sab 20",img:"p_naranjos",note:"Il casco antiguo è pedonale: auto al Parking Mercado Central o La Alameda.",
+  opts:[{name:"The Old House",score:8.8,tot:160,est:"160 € stimati (80 € per venerdì, raddoppiato)"},{name:"Lucero 12",score:8.9,tot:164,est:"164 € stimati (82 € per venerdì, raddoppiato)"},{name:"Casa Postigos",score:9.1,tot:173,pick:1,det:"Verificato: matrimoniale standard da 15 m², 173 € per 2 notti (era 247 €). Parcheggio gratuito nelle vicinanze secondo le recensioni."}]}
+};
+var Q={
+ p1:{ch:"giorni",q:"Che ritmo vi somiglia?",o:[["calm","Con calma","Poche tappe e lunghe pause"],["full","A tutta","Vogliamo vedere tutto"]]},
+ p2:{ch:"giorni",q:"Sabato pomeriggio, un extra?",o:[["marbella","Ancora Marbella","Un museo piccolo e il tramonto sul lungomare"],["mijas","Mijas Pueblo","Il villaggio bianco con la vista sulla costa, a 35 minuti"],["istan","Istán e Ojén","Paesi bianchi quasi senza turisti, a 15–20 minuti"]]},
+ p3:{ch:"giorni",q:"Cosa vi accende?",multi:1,hint:"Anche più di una.",o:[["storia","Storia e palazzi"],["vista","Panorami e miradores"],["local","Quartieri da local"],["natura","Natura"]]},
+ p4:{ch:"giorni",q:"Musei e biglietti?",o:[["in","Entriamo dove vale","Alcázar, Mezquita, Alcazaba e qualche extra"],["few","Pochi biglietti","Solo i più belli, il resto da fuori"]]},
+ p5:{ch:"giorni",q:"Una serata di flamenco?",o:[["yes","Sì, lunedì sera","In un tablao piccolo a Siviglia, non uno spettacolo con cena"],["no","No, grazie","Meglio un giro di tapas in più"]]},
+ p6:{ch:"giorni",q:"Le serate ideali?",o:[["tapas","Tapas al bancone","Da un bar all'altro, in piedi"],["sunset","Tramonti e miradores","Ponti, terrazze e passeggiate"]]},
+ f1:{ch:"tavola",q:"Quanto spendiamo a tavola?",o:[["low","Poco, come i local","Bar di quartiere, mercati e bodegas"],["mid","Giusto","Buone taverne e qualche classico"],["special","Giusto, più una cena speciale","Una sera in un posto di riferimento"]]},
+ f2:{ch:"tavola",q:"Cosa vi fa venire fame?",multi:1,hint:"Anche più di una.",o:[["tapas","Tapas"],["carne","Carne e rabo de toro"],["pesce","Pesce e fritture"],["tipico","Cucina di casa"]]},
+ f3:{ch:"tavola",q:"E i dolci?",o:[["yes","Uno al giorno","Churros, yemas e pasticcerie storiche"],["no","Ogni tanto","Ci bastano i pasti"]]},
+ s1:{ch:"botteghe",q:"Cosa portiamo a casa?",multi:1,hint:"Anche più di una.",o:[["ceramica","Ceramica"],["moda","Ventagli e flamenca"],["dolci","Dolci dei conventi"],["artigiani","Cuoio e argento"],["sapori","Olio, vino e jamón"],["falsi","Borse e vestiti contraffatti"]]}
+};
+var CH={welcome:"Benvenuti",hotel:"Dove dormite",giorni:"I nostri giorni",tavola:"A tavola",botteghe:"Botteghe",fine:"Il nostro viaggio",consigli:"Consigli",partire:"Prima di partire",appendice:"Il Caminito",budget:"Il budget"};
+var THEME={hotel:"t-rose",giorni:"t-green",tavola:"t-saffron",botteghe:"t-rose",welcome:"t-paper",fine:"t-ink",consigli:"t-paper",partire:"t-green",appendice:"t-paper",budget:"t-paper"};
+var ALL=[
+ {id:"splash"},{id:"welcome",ch:"welcome"},
+ {id:"c-hotel",ch:"hotel",cover:["1","Dove dormite","Cinque tappe, tre hotel veri per ognuna. Quelli scelti sono già segnati: con un tocco potete cambiarli e il budget si aggiorna."]},
+ {id:"hotels",ch:"hotel"},{id:"budget",ch:"budget"},
+ {id:"c-giorni",ch:"giorni",cover:["2","I nostri giorni","Sei domande e la guida degli otto giorni si costruisce sulle vostre risposte."]},
+ {id:"p1",q:1},{id:"p2",q:1},{id:"p3",q:1},{id:"p4",q:1},{id:"p5",q:1},{id:"p6",q:1},{id:"r-giorni",ch:"giorni"},{id:"appendice",ch:"appendice"},
+ {id:"c-tavola",ch:"tavola",cover:["3","A tavola","Tre domande e vi diciamo dove pranzare e cenare ogni giorno, con i posti della gente del posto in prima fila."]},
+ {id:"f1",q:1},{id:"f2",q:1},{id:"f3",q:1},{id:"r-tavola",ch:"tavola"},{id:"piatti",ch:"tavola"},
+ {id:"c-botteghe",ch:"botteghe",cover:["4","Botteghe e mercati","Una domanda per riempire lo zaino nel modo giusto. Occhio: avete solo il bagaglio piccolo."]},
+ {id:"s1",q:1},{id:"r-botteghe",ch:"botteghe"},
+ {id:"fine",ch:"fine"},{id:"consigli",ch:"consigli"},{id:"partire",ch:"partire"},{id:"grazie"}
+];
+function FLOW(){return ALL.filter(function(s){return !s.only||s.only()})}
+
+function hotelPicks(){var sv=load("hotel")||{},o={};CITY.forEach(function(c){var i=0;HOTELS[c].opts.forEach(function(x,k){if(x.pick)i=k});o[c]=(typeof sv[c]==="number"&&HOTELS[c].opts[sv[c]])?sv[c]:i});return o}
+function fmtScore(v){return v.toFixed(1).replace(".",",")}
+function hotelCostPP(picks){var t=0;CITY.forEach(function(c){t+=HOTELS[c].opts[picks[c]].tot});return Math.round(t/2)}
+
+
+/* =================== SCHEDE DEI LUOGHI =================== */
+var INFO={
+"Barrio Santa Cruz al tramonto":"L'antico quartiere ebraico di Siviglia: vicoli stretti pensati per l'ombra, patii con gli aranci e piazzette come Plaza de Doña Elvira. Al tramonto si svuota dei gruppi e si cammina tra muri bianchi e gelsomini. Si gira solo a piedi.",
+"Plaza del Triunfo e Giralda illuminata":"La piazza tra la Cattedrale e l'Alcázar. La sera la Giralda è illuminata: era il minareto della moschea almohade (1184–1198) e in cima ha il Giraldillo, la statua che gira col vento e ha dato il nome alla torre.",
+"Setas di sera":"Il Metropol Parasol, che i sivigliani chiamano «le Setas» (i funghi), è la struttura in legno più grande del mondo. In cima c'è una passerella panoramica e la sera lo spettacolo di luci «Aurora». Biglietto da 16 €, aperto dalle 9:30 all'1:00 (dati 2026).",
+"Plaza del Cabildo":"Una piazza semicircolare nascosta dietro un portone, a due passi dalla Cattedrale. Ha negozietti di francobolli e monete e la domenica mattina un piccolo mercato di collezionisti. Quasi nessun turista la trova.",
+"Real Alcázar":"Il palazzo reale in uso più antico d'Europa: i piani alti sono ancora la residenza dei reali di Spagna quando vengono a Siviglia. Il cuore è il palazzo mudéjar di Pietro I, con il Patio de las Doncellas, poi i giardini con pavoni e aranci. È stato Dorne nel «Trono di spade». Biglietto 15,50 € (tariffa 2025), il lunedì aperto 9:30–17:00: prenotate la fascia delle 9:30.",
+"Cattedrale e Giralda":"La cattedrale gotica più grande del mondo, costruita al posto della moschea, con la tomba di Cristoforo Colombo portata a spalla da quattro re. Si sale sulla Giralda per 35 rampe invece che per gradini: secondo la tradizione, così il muezzin poteva arrivare in cima a cavallo. 13 € online (tariffa 2026), aperta il lunedì 10:45–18:00.",
+"Chiesa del Salvador":"La seconda chiesa di Siviglia, barocca, costruita sopra un'antica moschea di cui resta il cortile. È inclusa nel biglietto della Cattedrale, ma quasi nessuno ci va.",
+"Hospital de los Venerables":"Un ospizio barocco per sacerdoti anziani nel cuore di Santa Cruz, con un patio a scacchiera e il Centro Velázquez. È uno dei posti più belli della città e tra i meno visitati. Circa 10 €.",
+"Plaza de España e Parco di María Luisa":"Costruita per l'Esposizione iberoamericana del 1929: un emiciclo di mattoni con 48 panche di azulejos, una per provincia spagnola, e un canale con i ponticelli. È diventata il pianeta Naboo in «Star Wars: L'attacco dei cloni». Gratis.",
+"Triana e il suo mercato":"Al di là del Guadalquivir, attraverso il Puente de Isabel II: il quartiere dei ceramisti, dei marinai e del flamenco. Il Mercado de Triana sorge sulle rovine del Castillo de San Jorge, sede dell'Inquisizione. Di lunedì molti banchi del pesce sono chiusi. Al tramonto Calle Betis si colora sul fiume.",
+"Centro Cerámica Triana":"Un museo nella vecchia fabbrica di ceramiche Santa Ana, con i forni originali. Racconta come Triana sia diventata il quartiere degli azulejos. Circa 2–3 €.",
+"Palacio de las Dueñas":"Il palazzo dei duchi d'Alba, dove nacque il poeta Antonio Machado: patii in ombra, aranci, buganvillee e collezioni di famiglia. Circa 12 €.",
+"Flamenco in un tablao piccolo":"Gli spettacoli «con cena» per turisti valgono poco. Meglio un tablao piccolo o una peña, dove si siede a pochi metri da chi canta e balla. Prezzo e programma da verificare sul posto o online.",
+"Mezquita-Catedral":"Costruita dal 785 e ampliata per due secoli, è stata la grande moschea del Califfato di Córdoba. Ha circa 850 colonne, molte prese da templi romani e chiese visigote: nessun capitello è uguale all'altro. Nel 1523 ci costruirono dentro una cattedrale rinascimentale: secondo la tradizione Carlo V disse «Avete distrutto ciò che era unico al mondo». Il mihrab guarda a sud invece che verso la Mecca. 15 € (2026).",
+"Torre campanario":"L'ex minareto, poi rivestito come campanile. Si sale a turni ogni mezz'ora e si vede tutta la Judería dall'alto. 4 € (2026).",
+"Judería e Calleja de las Flores":"Il vecchio quartiere ebraico intorno alla Mezquita: vicoli bianchi, vasi di gerani sui muri e la Calleja de las Flores, con la torre della Mezquita incorniciata in fondo. Poco lontano c'è la Calleja del Pañuelo, larga quanto un fazzoletto aperto.",
+"Alcázar de los Reyes Cristianos":"La fortezza dove i Re Cattolici vissero per anni durante la guerra di Granada e dove ricevettero Cristoforo Colombo. I giardini con le vasche sono stati riaperti a giugno 2026. 7 €, chiuso il lunedì.",
+"Palacio de Viana":"Un palazzo con dodici patii diversi, uno più fiorito dell'altro: il modo migliore per capire perché a Córdoba i patii sono una festa. Circa 10 €, aperto il martedì (da verificare).",
+"Santa Marina e San Lorenzo":"Due quartieri a nord del centro, con le chiese «fernandine» del Duecento costruite dopo la conquista cristiana e i patii delle case. Qui vivevano i toreri e oggi ci vivono i cordobeses: quasi nessun turista.",
+"Plaza del Potro":"Una piazza con la fontana del puledro e la locanda dove soggiornò Cervantes, che la cita nel «Don Chisciotte». Gratis.",
+"Puente Romano al tramonto":"Il ponte romano sul Guadalquivir, ricostruito più volte, con la Torre de la Calahorra dall'altra parte. Al tramonto la Mezquita si colora d'oro: è la foto più bella della città.",
+"Mezquita all'alba":"Dal lunedì al sabato dalle 8:30 alle 9:30 la Mezquita si visita gratis, con accesso fino alle 9:20, senza gruppi e senza campanile. È il momento in cui la foresta di colonne è quasi vuota e silenziosa. Non vale nei giorni di celebrazioni straordinarie.",
+"Alcazaba e Gibralfaro":"L'Alcazaba è la fortezza-palazzo musulmana dell'XI secolo, con giardini e fontane a terrazze. Sopra, il castello di Gibralfaro guarda il porto e l'arena. Biglietto combinato 10 € (2026), in inverno ultimo ingresso alle 17:00. Fino a Gibralfaro c'è una salita ripida di circa 30 minuti, oppure il bus 35.",
+"Teatro romano":"Il teatro del I secolo a.C. ai piedi dell'Alcazaba, ritrovato solo nel 1951 durante i lavori per un giardino. Si vede bene anche da fuori.",
+"Jardines de Puerta Oscura":"Giardini a terrazze sotto le mura, lungo la salita verso Gibralfaro. Fontane, pergole e la vista sul porto, quasi sempre vuoti. Gratis.",
+"Museo Picasso":"Picasso nacque a Malaga nel 1881, in Plaza de la Merced. Il museo, in un palazzo del Cinquecento, raccoglie opere donate dalla famiglia. 13 € (2026), marzo 10:00–19:00.",
+"Cattedrale «La Manquita»":"Cominciata nel 1528 e mai finita: manca la torre sud. Una lapide racconta che nel 1782 i soldi andarono ad aiutare le colonie americane contro gli inglesi. Per questo i malagueños la chiamano «la Manquita», la monca. Circa 10 €.",
+"Mercado de Atarazanas":"Il mercato centrale in ferro dell'Ottocento, con la porta moresca dell'antico arsenale nazarí e una grande vetrata colorata. Dentro ci sono banchi di pesce e bar dove si mangia quello che si è appena comprato.",
+"Barrio del Soho":"Il quartiere tra il centro e il porto, pieno di murales di street art. Si gira in mezz'ora, gratis.",
+"Calle Larios e Malagueta":"Calle Larios è il salotto di Malaga, pavimentato di marmo. Da qui si arriva al Muelle Uno e alla spiaggia della Malagueta, dove si fanno gli espetos di sardine sulla brace.",
+"Caminito del Rey":"Passerelle appese a cento metri d'altezza sopra il Desfiladero de los Gaitanes, per 7,7 km a senso unico da nord a sud. Era il sentiero di servizio degli operai della centrale idroelettrica, costruito tra il 1901 e il 1905. Nel 1921 lo percorse re Alfonso XIII, da cui il nome. Chiuso nel 2001 dopo diversi incidenti, è stato riaperto nel 2015 con passerelle nuove sopra quelle vecchie, ancora visibili sotto i piedi. Biglietto 10 €.",
+"Laghi di Ardales":"I bacini turchesi del Conde de Guadalhorce, visibili dal mirador vicino al ristorante El Kiosko. Qui c'è anche il «Sillón del Rey», il sedile di pietra dove Alfonso XIII firmò l'inaugurazione della diga.",
+"Puente Nuevo al tramonto":"Ci vollero 42 anni (1751–1793) per costruirlo, 98 metri sopra il Tajo. La stanza sopra l'arco centrale fu usata come prigione. Hemingway si ispirò alla guerra civile a Ronda per una scena di «Per chi suona la campana». Al tramonto la gola diventa rossa.",
+"Mirador de Aldehuela e Jardines de Cuenca":"Due affacci sul Tajo: il mirador porta il nome dell'architetto del ponte, i giardini scendono a terrazze sulla gola. Gratis.",
+"Sentiero sotto il Puente Nuevo":"Il Camino de los Molinos scende da Plaza María Auxiliadora fino sotto il ponte: la foto più bella del Puente Nuevo si fa dal basso. Gratis, con un po' di salita al ritorno.",
+"Baños árabes":"Bagni del XIII–XIV secolo tra i meglio conservati di Spagna, con le volte forate a stella da cui entra la luce. Circa 4 €.",
+"Plaza de Toros di Ronda":"Una delle arene più antiche di Spagna, culla della corrida a piedi dei Romero. Circa 8 €.",
+"Casa del Rey Moro":"Un giardino a terrazze e la «mina», una scala scavata nella roccia fino al fiume, usata per portare l'acqua in città durante gli assedi. Circa 10 €, conviene prenotare.",
+"Cuevas del Sol e Cuevas de la Sombra":"Le due vie di Setenil dove le case sono incastrate sotto la roccia: la montagna fa da tetto. Il lato del Sol è pieno di bar, quello della Sombra è in ombra e meno fotografato. Arrivate verso le 10, prima dei pullman.",
+"Mirador del Carmen":"La vista dall'alto sui tetti di Setenil schiacciati sotto la roccia. Gratis.",
+"Torre del Homenaje":"Quel che resta del castello nazarí che resistette a sette assedi, con la chiesa dell'Encarnación accanto. Pochi euro.",
+"Casco antiguo e Plaza de los Naranjos":"Il centro storico di Marbella è bianco e pedonale, con la Plaza de los Naranjos del 1485, gli aranci e il municipio. Prima degli anni Cinquanta Marbella era un villaggio di pescatori.",
+"Barrio Alto di Marbella":"La parte alta del casco antiguo, con case imbiancate, vasi di gerani e l'Ermita del Santo Cristo. Gratis.",
+"Avenida del Mar e lungomare":"Il viale che scende dal centro al mare, con le sculture di Salvador Dalí, poi il Paseo Marítimo. Gratis.",
+"Parque de la Alameda":"Un giardino ombreggiato con le panchine di ceramica sivigliana, tra il centro e il mare. Gratis.",
+"Puerto Banús":"Il porto turistico inaugurato nel 1970 dal costruttore José Banús, con ospiti come Grace Kelly. Yacht e negozi di lusso. Il sabato mattina vicino all'arena di Nueva Andalucía c'è il mercatino più grande della zona.",
+"Museo del Grabado Español":"Un piccolo museo nell'ex ospedale di Marbella, con incisioni di Picasso, Miró e Dalí. Pochi euro.",
+"Mijas Pueblo":"Un villaggio bianco in collina, a circa 35 minuti da Marbella, con la vista su tutta la costa. Si gira a piedi in un paio d'ore.",
+"Istán e Ojén":"Due pueblos blancos a 15–20 minuti dall'interno di Marbella, quasi senza turisti. Acqua che scorre nei canali, vicoli in salita e la Sierra de las Nieves intorno.",
+"Mattina della Domenica delle Palme":"La mattina si benedicono le palme nelle chiese e la città si prepara: escono le prime confraternite (gli orari esatti sono nel programma ufficiale 2027) con i «pasos» portati a spalla dai costaleros, che camminano senza vedere nulla, guidati solo dalla voce del capataz.",
+"Prima sera a Marbella":"Dopo la strada di montagna, un primo giro nel casco antiguo illuminato e una cena di tapas. Sabato c'è tutto il giorno per vederlo con calma.",
+"Calle Sierpes e ultimi acquisti":"La via dei negozi storici di Siviglia, con le botteghe di ventagli e la Confitería La Campana. Ultimo giro prima del bus.",
+"Medina Azahara":"La città-palazzo del Califfo, a 20 minuti d'auto da Córdoba, patrimonio UNESCO. Ingresso gratuito per i cittadini UE, navetta dal parcheggio circa 3 €, chiusa il lunedì."
+};
+
+/* =================== GIORNI =================== */
+/* [tipo, titolo, descrizione, costo, regole]  regole: core, x (extra), i (interesse), pay (biglietto facoltativo), flam, eve, sat */
+var DAYS=[
+ {d:"Dom 14",t:"Benvenuti a Siviglia",th:"Si atterra alle 16:50: giusto il tempo di lasciare le valigie e perdersi tra aranci e campanili.",f:"La Giralda non ha scale: si sale per 35 rampe, costruite così perché il muezzin potesse arrivare in cima a cavallo (o almeno così racconta la tradizione).",lunch:null,dinner:["sev"],
+  s:[["go","16:50 · Bus EA per il centro","6 € a tratta, 8 € andata e ritorno, circa 35 minuti.","",{core:1}],
+     ["free","Barrio Santa Cruz al tramonto","Vicoli, patii e Plaza de Doña Elvira.","",{core:1}],
+     ["free","Plaza del Triunfo e Giralda illuminata","Cattedrale e Alcázar da fuori, di sera.","",{core:1}],
+     ["in","Setas di sera","Passerella panoramica e luci «Aurora».","da 16 € a persona",{pay:1,i:"vista"}],
+     ["gem","Plaza del Cabildo","La piazza nascosta dietro un portone.","",{x:1,i:"local"}]]},
+ {d:"Lun 15",t:"Palazzi, azulejos e Triana",th:"La giornata più piena: Alcázar alle 9:30, Cattedrale a mezzogiorno, Plaza de España nel pomeriggio e Triana al tramonto.",f:"Il Real Alcázar è il palazzo reale in uso più antico d'Europa: i piani alti sono ancora la residenza dei reali di Spagna quando sono a Siviglia.",note:"Alcázar: prenotate la fascia delle 9:30. Il lunedì al Mercado de Triana molti banchi del pesce sono chiusi.",lunch:["sev"],dinner:["sev"],
+  s:[["in","Real Alcázar","Palazzo mudéjar e giardini. Prenotate le 9:30.","15,50 € a persona",{core:1}],
+     ["in","Cattedrale e Giralda","La tomba di Colombo e la salita sulle rampe.","13 € a persona online",{core:1}],
+     ["gem","Chiesa del Salvador","Inclusa nel biglietto della Cattedrale, quasi vuota.","",{x:1,i:"storia"}],
+     ["gem","Hospital de los Venerables","Il patio barocco che pochi visitano.","circa 10 € a persona",{pay:1,i:"storia"}],
+     ["free","Plaza de España e Parco di María Luisa","48 panche di azulejos, il pianeta Naboo.","",{core:1}],
+     ["free","Triana e il suo mercato","Il quartiere dei ceramisti al tramonto.","",{core:1}],
+     ["gem","Centro Cerámica Triana","I forni originali della fabbrica Santa Ana.","2–3 € a persona",{i:"local"}],
+     ["gem","Palacio de las Dueñas","Il palazzo dei duchi d'Alba.","circa 12 € a persona",{x:1,pay:1,i:"storia"}],
+     ["in","Flamenco in un tablao piccolo","A pochi metri da chi canta e balla.","prezzo da verificare",{flam:1}]]},
+ {d:"Mar 16",t:"La foresta di colonne",th:"Bus EA, auto in aeroporto e un'ora e quaranta verso la capitale del Califfato.",f:"La Mezquita ha circa 850 colonne, molte riutilizzate da templi romani e chiese visigote: guardando bene, nessun capitello è uguale all'altro.",note:"Non entrate in auto nel centro storico: zona ACIRE con telecamere. Auto all'hotel o al Parking Paseo de la Victoria.",lunch:["cor"],dinner:["cor"],
+  s:[["go","Bus EA e ritiro dell'auto in aeroporto","","",{core:1}],
+     ["go","Siviglia → Córdoba, circa 1 ora e 40","","",{core:1}],
+     ["in","Mezquita-Catedral","La moschea con la cattedrale dentro.","15 € a persona",{core:1}],
+     ["in","Torre campanario","L'ex minareto, turni ogni mezz'ora.","4 € a persona",{pay:1,i:"vista"}],
+     ["free","Judería e Calleja de las Flores","Gerani, vicoli bianchi e la torre in fondo.","",{core:1}],
+     ["in","Alcázar de los Reyes Cristianos","Giardini riaperti a giugno 2026.","7 € a persona",{pay:1,i:"storia"}],
+     ["gem","Palacio de Viana","Dodici patii in un palazzo.","circa 10 € a persona",{x:1,pay:1,i:"storia"}],
+     ["gem","Santa Marina e San Lorenzo","Il quartiere dei toreri, senza turisti.","",{i:"local"}],
+     ["gem","Plaza del Potro","La locanda di Cervantes.","",{x:1,i:"storia"}],
+     ["free","Puente Romano al tramonto","La Mezquita che diventa d'oro.","",{core:1}]]},
+ {d:"Mer 17",t:"Dalla Mezquita al mare",th:"Sveglia presto per avere la Mezquita quasi tutta per voi, poi giù verso il Mediterraneo.",f:"La Cattedrale di Malaga ha un solo campanile: i soldi per il secondo, nel 1782, sarebbero andati alle colonie americane contro gli inglesi. Per questo la chiamano «la Manquita», la monca.",note:"Alcazaba: ultimo ingresso alle 17:00. Gibralfaro è in cima a una salita ripida: c'è il bus 35.",lunch:["mal"],dinner:["mal"],
+  s:[["free","Mezquita all'alba","8:30–9:30, accesso fino alle 9:20.","gratis",{core:1}],
+     ["go","Córdoba → Malaga, circa 2 ore","","",{core:1}],
+     ["in","Alcazaba e Gibralfaro","Fortezza, giardini e il porto dall'alto.","10 € a persona",{core:1}],
+     ["free","Teatro romano","Ritrovato solo nel 1951.","",{core:1}],
+     ["gem","Jardines de Puerta Oscura","Terrazze sotto le mura, quasi vuote.","",{x:1,i:"vista"}],
+     ["in","Museo Picasso","Nella città dove nacque.","13 € a persona",{pay:1,i:"storia"}],
+     ["in","Cattedrale «La Manquita»","La cattedrale senza un campanile.","circa 10 € a persona",{x:1,pay:1,i:"storia"}],
+     ["gem","Mercado de Atarazanas","Ferro, vetro e la porta moresca.","",{i:"local"}],
+     ["gem","Barrio del Soho","I murales tra il centro e il porto.","",{x:1,i:"local"}],
+     ["free","Calle Larios e Malagueta","Il salotto della città e la spiaggia.","",{core:1}]]},
+ {d:"Gio 18",t:"Sospesi sulla gola",cam:1,th:"Il Caminito alle 11:50, poi Ronda al tramonto.",f:"Si chiama «del Rey» perché nel 1921 Alfonso XIII lo percorse per inaugurare la diga: fino ad allora era il sentiero degli operai della centrale.",note:"Al controllo 30 minuti prima delle 11:50, con il documento. La navetta si paga in contanti. A Ronda niente Puente Nuevo in auto.",lunch:["chorro"],dinner:["ron"],
+  s:[["go","09:45 · Malaga → Caminito, circa 1 ora","","",{core:1}],
+     ["in","Caminito del Rey","7,7 km di passerelle, ingresso alle 11:50.","10 € a persona",{core:1}],
+     ["gem","Laghi di Ardales","I bacini turchesi dal mirador.","",{x:1,i:"natura"}],
+     ["go","15:30 · Navetta e auto per Ronda, circa 1 ora","","",{core:1}],
+     ["free","Puente Nuevo al tramonto","98 metri sopra il Tajo.","",{core:1}],
+     ["free","Mirador de Aldehuela e Jardines de Cuenca","Affacci sulla gola.","",{i:"vista"}],
+     ["gem","Sentiero sotto il Puente Nuevo","La foto del ponte dal basso.","",{x:1,i:"natura"}]]},
+ {d:"Ven 19",t:"Case sotto la roccia",th:"Ronda la mattina, Setenil prima dei pullman, poi giù verso la costa.",f:"Il nome Setenil verrebbe dal latino «septem nihil», «sette volte niente»: i cristiani fallirono sette assedi prima di conquistarlo nel 1484.",note:"A Setenil lasciate l'auto all'ingresso del paese e salite a piedi. A Marbella il casco antiguo è pedonale.",lunch:["set"],dinner:["mar"],
+  s:[["gem","Baños árabes","Bagni medievali con le volte a stella.","circa 4 € a persona",{i:"storia"}],
+     ["in","Plaza de Toros di Ronda","Una delle arene più antiche di Spagna.","circa 8 € a persona",{pay:1,i:"storia"}],
+     ["in","Casa del Rey Moro","La scala scavata fino al fiume.","circa 10 € a persona",{x:1,pay:1,i:"storia"}],
+     ["go","Ronda → Setenil, 20 minuti","","",{core:1}],
+     ["free","Cuevas del Sol e Cuevas de la Sombra","La montagna come tetto.","",{core:1}],
+     ["gem","Mirador del Carmen","I tetti di Setenil dall'alto.","",{i:"vista"}],
+     ["gem","Torre del Homenaje","Il castello dei sette assedi.","pochi euro",{x:1,pay:1,i:"storia"}],
+     ["go","Setenil → Marbella, circa 1 ora e 15","Strada di montagna con molte curve.","",{core:1}],
+     ["free","Prima sera a Marbella","Un giro nel casco antiguo illuminato.","",{core:1}]]},
+ {d:"Sab 20",t:"Marbella con calma",th:"Il primo giorno senza valigie: churros in piazza, centro storico bianco, lungomare e Puerto Banús.",f:"Puerto Banús fu inaugurato nel 1970 con ospiti come Grace Kelly. Prima degli anni Cinquanta Marbella era un villaggio di pescatori.",note:"Venerdì e sabato ci sono già processioni minori, anche a Marbella: belle da vedere, ma rallentano il traffico.",lunch:["mar"],dinner:["mar"],breakfast:1,
+  s:[["free","Casco antiguo e Plaza de los Naranjos","Aranci, case bianche e il municipio.","",{core:1}],
+     ["gem","Barrio Alto di Marbella","Gerani e l'Ermita del Santo Cristo.","",{i:"local"}],
+     ["gem","Parque de la Alameda","Panchine di ceramica sivigliana.","",{x:1,i:"local"}],
+     ["free","Avenida del Mar e lungomare","Le sculture di Dalí e il mare.","",{core:1}],
+     ["free","Puerto Banús","Yacht e il mercatino del sabato mattina.","",{core:1}],
+     ["gem","Museo del Grabado Español","Picasso, Miró e Dalí in piccolo.","pochi euro",{sat:"marbella"}],
+     ["free","Mijas Pueblo","Il villaggio bianco con la vista sulla costa.","",{sat:"mijas"}],
+     ["gem","Istán e Ojén","Paesi bianchi quasi senza turisti.","",{sat:"istan"}]]},
+ {d:"Dom 21",t:"Domenica delle Palme",th:"Partenza presto da Marbella, auto riconsegnata alle 10:30 e Siviglia a piedi nel giorno in cui comincia la Semana Santa. Volo alle 18:15.",f:"I costaleros portano i «pasos» a spalla senza vedere nulla: li guida solo la voce del capataz.",note:"Gli orari esatti delle cofradías vanno controllati sul programma ufficiale della Semana Santa 2027. Dal pomeriggio il centro chiude al traffico: bus EA per l'aeroporto entro le 15:30.",lunch:["sev"],dinner:null,
+  s:[["go","07:30 · Marbella → aeroporto di Siviglia, circa 2 ore e 30","Pieno prima della riconsegna.","",{core:1}],
+     ["go","10:30 · Riconsegna dell'auto e bus EA in centro","","",{core:1}],
+     ["free","Mattina della Domenica delle Palme","Palme benedette e le prime confraternite.","",{core:1}],
+     ["free","Calle Sierpes e ultimi acquisti","Ventagli e yemas della Campana.","",{core:1}],
+     ["go","15:30 · Bus EA per l'aeroporto","Volo Ryanair alle 18:15, a Catania alle 21:05.","",{core:1}]]}
+];
+var TL={free:"Gratis",in:"Biglietto",out:"Basta da fuori",gem:"Chicca",go:"Spostamento"};
+function planDays(){return DAYS}
+function dayStops(x){
+  var ints=A.p3||[],calm=A.p1==="calm",few=A.p4==="few";
+  return x.s.filter(function(s){var r=s[4]||{};
+    if(r.flam)return A.p5==="yes";
+    if(r.sat)return (A.p2||"marbella")===r.sat;
+    if(r.eve)return A.p6===r.eve;
+    if(r.core)return true;
+    if(r.pay&&few)return false;
+    var hit=!!(r.i&&ints.indexOf(r.i)>-1);
+    if(r.x)return hit||!calm;
+    if(calm&&r.i&&ints.length&&!hit)return false;
+    return true;
+  });
+}
+
+
+/* =================== TAVOLA =================== */
+/* [nome, zona, dove, prezzo 1-3, pasti, stili, nota, avviso, 0, da local] · prezzi e chiusure dalla ricerca del 24/11/2026, spesso da verificare */
+var R=[
+ ["El Rinconcillo","sev","Centro, San Pedro",2,"pranzo cena",["tapas","tipico"],"La taverna più antica di Siviglia, dal 1670. Espinacas con garbanzos e un fino. 20–25 € a testa.","Chiusura da verificare",0,0],
+ ["Bodega Santa Cruz «Las Columnas»","sev","Barrio Santa Cruz",1,"pranzo cena",["tapas"],"In piedi al bancone, sempre piena. 15–20 € a testa.","",0,0],
+ ["Bodeguita Romero","sev","El Arenal",2,"pranzo cena",["tapas","carne"],"Il montadito de pringá di riferimento. 20 € a testa.","",0,0],
+ ["Casa Morales","sev","Davanti alla Cattedrale",1,"pranzo cena",["tapas","tipico"],"Bodega del 1850 con le giare di vino. 15–20 € a testa.","",0,0],
+ ["Eslava","sev","San Lorenzo",3,"cena",["tapas"],"Tapas creative, coda all'apertura. 25–35 € a testa.","Arrivate all'apertura",0,0],
+ ["Bar Las Golondrinas","sev","Triana",1,"pranzo cena",["tapas","carne"],"Minuscolo e pieno di gente del quartiere. Tapas da 2,50 a 5 €, 15 € a testa.","",0,1],
+ ["Bodega Blanco Cerrillo","sev","Centro",1,"pranzo cena",["pesce","tapas"],"Bodega tradizionale famosa per il pesce in adobo. 12–15 € a testa.","",0,1],
+ ["Bodega Dos de Mayo","sev","Plaza de la Gavidia",2,"pranzo cena",["tapas","tipico"],"Tapas classiche e sherry, dal 1925. 15–20 € a testa.","",0,1],
+ ["Banchi del Mercado de Triana","sev","Triana",1,"pranzo",["pesce","tapas"],"Si mangia ai banchi dentro il mercato. 10–20 € a testa.","Il lunedì poco pesce",0,1],
+ ["Bar Santos","cor","Davanti alla Mezquita",1,"pranzo",["tapas"],"La tortilla gigante e il salmorejo. 10 € a testa.","",0,1],
+ ["Casa Pepe de la Judería","cor","Judería",3,"cena",["tipico","carne"],"Salmorejo, rabo de toro e terrazza. 35–45 € a testa.","",0,0],
+ ["Taberna Salinas","cor","Vicino alla Corredera",2,"pranzo cena",["tipico"],"Taverna con patio: berenjenas con miel e naranjas con bacalao. 20 € a testa.","Spesso chiusa la domenica",0,1],
+ ["Bodegas Mezquita","cor","Judería",2,"pranzo cena",["tipico","carne"],"Flamenquín e cucina cordobese in versione moderna. 20–25 € a testa.","",0,0],
+ ["Bar Santa Marina","cor","Barrio di Santa Marina",1,"pranzo",["tapas"],"Il bar dei toreri, foto in bianco e nero. 10–12 € a testa.","Solo contanti",0,1],
+ ["Casa El Pisto","cor","San Miguel",2,"pranzo cena",["tipico","tapas"],"La Taberna San Miguel, dal 1880 ritrovo dei cordobeses. 15–20 € a testa.","",0,1],
+ ["El Pimpi","mal","Accanto al Teatro romano",2,"pranzo cena",["tapas","tipico"],"Casa del Settecento con le botti firmate da ospiti famosi. 25–30 € a testa.","",0,0],
+ ["Casa Lola","mal","Calle Granada",2,"pranzo cena",["tapas"],"Tapas da 2,50 a 4,50 €, spesso c'è coda. 15–20 € a testa.","",0,0],
+ ["Antigua Casa de Guardia","mal","Alameda Principal",1,"pranzo cena",["tapas","pesce"],"Vino dolce dalla botte e conto scritto col gesso sul bancone, dal 1840. 5–10 € a testa.","Più un aperitivo che una cena",0,1],
+ ["Bar dell'Atarazanas","mal","Mercado de Atarazanas",1,"pranzo",["pesce"],"Fritto e frutti di mare appena comprati ai banchi. 10–15 € a testa.","Solo a pranzo",0,1],
+ ["Chiringuito María","mal","El Palo · bus 3 o 11",2,"pranzo",["pesce"],"Espetos di sardine sulla brace a circa 3,50 €. 20–25 € a testa.","",0,1],
+ ["El Tintero","mal","El Candado · bus",2,"pranzo",["pesce"],"I camerieri girano gridando il nome dei piatti: si prende quello che si vuole. 20–25 € a testa.","",0,0],
+ ["La Garganta","chorro","El Chorro · 300 m dall'uscita",2,"pranzo",["tipico"],"Terrazza sulla gola, cucina dalle 12 alle 22:30. 15–25 € a testa.","",0,0],
+ ["El Kiosko","chorro","Ardales · accanto al tunnel",2,"pranzo",["carne"],"Brace e vista sui laghi. 15–20 € a testa.","Parcheggio spesso pieno",0,0],
+ ["Pedro Romero","ron","Davanti alla Plaza de Toros",3,"pranzo cena",["carne","tipico"],"Il rabo de toro di riferimento da quasi mezzo secolo. 35–40 € a testa.","",0,0],
+ ["Tragatá","ron","Centro",3,"cena",["tapas"],"Tapas d'autore, il brioche di rabo de toro. 30–45 € a testa.","Prenotate",0,0],
+ ["Las Maravillas","ron","Centro",2,"pranzo cena",["tapas","carne"],"Tapas da 1 a 3 €. 15–20 € a testa.","",0,1],
+ ["Bar El Lechuguita","ron","Centro",1,"cena",["tapas"],"Tapas piccolissime, si ordina con un foglietto. 10–15 € a testa.","",0,1],
+ ["Bodega San Francisco","ron","Barrio San Francisco",1,"pranzo cena",["tapas"],"Gente del posto e buoni prezzi. 15 € a testa.","",0,1],
+ ["Bar El Convento","ron","Barrio San Francisco",2,"cena",["tapas","tipico"],"Piccolo bar fuori dai circuiti. 15–20 € a testa.","Prenotate",0,1],
+ ["Bar Frasquito","set","Calle Cuevas del Sol",1,"pranzo",["tapas","tipico"],"Flamenquín a 4 €, tocino de cielo a 3 €. 12–15 € a testa.","Arrivate presto",0,1],
+ ["Bar La Escueva","set","Centro",1,"pranzo",["tapas"],"Terrazza panoramica, secreto ibérico. 15 € a testa.","",0,1],
+ ["Casa Palmero","set","Plaza de Andalucía",2,"pranzo",["tipico"],"Si mangia sotto la roccia. 20–25 € a testa.","",0,0],
+ ["Bar El Estrecho","mar","Casco antiguo",1,"pranzo cena",["tapas","pesce"],"Dal 1954, sardine fritte al limone e boquerones. 15–20 € a testa.","",0,1],
+ ["Bar Altamirano","mar","Plaza Altamirano",2,"pranzo cena",["pesce"],"Coquinas e pescaíto frito. 25–35 € a testa.","",0,0],
+ ["Taberna Gaspar","mar","Casco antiguo",2,"cena",["tapas"],"Tapas in una taverna del centro. 20 € a testa.","Dato del 2019, verificate",0,0],
+ ["Bar Francisco","mar","Calle Aduar",1,"pranzo",["tapas"],"Bar di quartiere nel casco antiguo. 15 € a testa.","Dato del 2019, verificate",0,1]
+];
+var SWEET={sev:["Confitería La Campana","Calle Sierpes","Yemas e torte dal 1885."],cor:["Pastelería Roldán","Centro","Il pastel cordobés con il cabello de ángel."],mal:["Casa Mira","Calle Larios","Turrón e gelato dal 1890."],ron:["Confitería Daver","Centro","Le yemas del Tajo, il dolce di Ronda."],set:["Tocino de cielo da Frasquito","Calle Cuevas del Sol","Il budino di tuorli più denso che ci sia."],mar:["Churrería Ramón","Plaza de los Naranjos","Churros con chocolate."]};
+var PR={1:"€",2:"€€",3:"€€€"};
+var TRAP=[["Siviglia","Le terrazze con i menu fotografati e la paella in Calle Mateos Gago e intorno alla Cattedrale; il rametto di rosmarino regalato e poi pagato; il flamenco con cena per turisti."],["Córdoba","I ristoranti con buttadentro in Calle Cardenal Herrero e intorno alla Mezquita: meglio la Corredera e San Lorenzo."],["Malaga","Le terrazze di Plaza de la Constitución e Calle Larios, le catene del Muelle Uno. A El Palo si mangia meglio che a Pedregalejo."],["Ronda","I ristoranti con vista sul Tajo vicino al ponte: si paga il panorama."],["Setenil","I bar di Cuevas del Sol tra le 11:30 e le 14, quando arrivano i pullman."],["Marbella","I ristoranti sul porto di Puerto Banús e i tavoli in Plaza de los Naranjos a pranzo: si paga la piazza."]];
+
+/* =================== BOTTEGHE =================== */
+/* [nome, categoria, zona, giorno, cosa, avviso, scheda] */
+var B=[
+ ["Ceramica di Triana","ceramica","Siviglia, Calle Antillano Campos e San Jorge","Lunedì, in Triana","Azulejos e numeri civici dipinti a mano.","","Triana è il quartiere dei ceramisti da secoli e alcune botteghe usano ancora i forni vicino al Centro Cerámica Triana. Un azulejo singolo dipinto a mano costa pochi euro e viaggia bene anche nello zaino."],
+ ["Ventagli di Calle Sierpes","moda","Siviglia, Calle Sierpes","Domenica mattina","Ventagli dipinti a mano.","","Le botteghe storiche di Sierpes vendono ventagli artigianali, lontani da quelli di plastica dei chioschi. Chiedete quelli dipinti a mano, con le stecche in legno di pero o in osso."],
+ ["Orecchini e mantón da flamenca","moda","Siviglia, centro","Lunedì o domenica","Scialli ricamati e orecchini grandi.","","A marzo i negozi preparano la stagione della Feria di aprile e la scelta è al massimo. Un paio di grandi orecchini da flamenca è il souvenir leggero per eccellenza."],
+ ["Dolci dei conventi","dolci","Siviglia, San Leandro e Santa Paula","Lunedì","Yemas e mantecados dal torno.","Orari dei conventi da verificare","Si comprano da una ruota girevole senza vedere la suora: si suona, si chiede e si lasciano i soldi sul «torno». Un'esperienza, oltre al dolce."],
+ ["Cuoio di Córdoba","artigiani","Córdoba, Judería","Martedì","Cordobán e guadamecí.","Diffidate dei prezzi troppo bassi","Il guadamecí, la pelle decorata a colori e oro, è un'arte dei tempi del Califfato; alcuni laboratori lavorano davanti ai clienti. Nelle vie intorno alla Mezquita il cuoio troppo economico è spesso importato."],
+ ["Filigrana d'argento","artigiani","Córdoba, Judería","Martedì","Orecchini e ciondoli in filigrana.","","La filigrana cordobese è una tecnica di origine araba ancora viva nelle oreficerie del centro: fili d'argento sottilissimi intrecciati a mano. Un regalo piccolo e prezioso."],
+ ["Olio extravergine DOP","sapori","Córdoba o mercati di Malaga","Martedì o mercoledì","Baena e Priego de Córdoba.","Liquidi oltre 100 ml: niente bagaglio a mano","La provincia di Córdoba produce alcuni degli oli più premiati al mondo. Con il solo bagaglio piccolo le bottiglie non passano ai controlli: spedite o aggiungete una valigia in stiva."],
+ ["Vino dolce di Malaga","sapori","Malaga, Antigua Casa de Guardia","Mercoledì","Moscatel e Pedro Ximénez.","Liquidi oltre 100 ml: niente bagaglio a mano","Si assaggia dalla botte al bancone e si compra la bottiglia uguale. Il «Málaga dulce» era il vino più esportato di Spagna prima della fillossera. Per portarlo a casa serve una valigia in stiva."],
+ ["Vini di Ronda","sapori","Ronda, enoteche del centro","Giovedì sera","Rossi di montagna DO Sierras de Málaga.","Liquidi oltre 100 ml: niente bagaglio a mano","Ronda è diventata una piccola zona vinicola di qualità negli ultimi trent'anni; alcune cantine come Descalzos Viejos fanno visite su prenotazione."],
+ ["Insaccati e payoyo di Setenil","sapori","Setenil, botteghe del paese","Venerdì mattina","Chorizo e formaggio di capra payoyo.","","Setenil vive anche di insaccati. Il payoyo, formaggio della capra della Sierra de Grazalema, è premiato e poco conosciuto fuori dall'Andalusia."],
+ ["Jamón ibérico sottovuoto","sapori","Mercato di Triana o Atarazanas","Lunedì o mercoledì","Buste affettate a mano da circa 100 g.","","Il prosciutto intero è scomodo: le buste affettate a mano e sottovuoto viaggiano senza problemi anche nel bagaglio piccolo."]
+];
+var BAZ=[["Mercado de Triana","Siviglia · sopra il castello dell'Inquisizione"],["Calle Sierpes","Siviglia · la via dei negozi storici"],["Judería di Córdoba","Córdoba · cuoio e argento"],["Mercado de Atarazanas","Malaga · ferro, vetro e una porta moresca"],["Mercatino di Puerto Banús","Marbella · sabato mattina"]];
+var SITE={"Caminito del Rey":"https://www.caminitodelrey.info/es/entradas/comprar","Real Alcázar":"https://www.alcazarsevilla.org/","Mezquita-Catedral":"https://mezquita-catedraldecordoba.es/","Mezquita all'alba":"https://mezquita-catedraldecordoba.es/","Cattedrale e Giralda":"https://www.catedraldesevilla.es/","Alcazaba e Gibralfaro":"https://alcazabaygibralfaro.malaga.eu/","Museo Picasso":"https://www.museopicassomalaga.org/","Setas di sera":"https://setasdesevilla.com/"};
+B.forEach(function(b){INFO[b[0]]=b[6]});
+INFO["Mercado de Triana"]=INFO["Triana e il suo mercato"];
+INFO["Calle Sierpes"]=INFO["Calle Sierpes e ultimi acquisti"];
+INFO["Judería di Córdoba"]=INFO["Judería e Calleja de las Flores"];
+INFO["Mercatino di Puerto Banús"]="Il mercatino del sabato mattina vicino all'arena di Nueva Andalucía, a Puerto Banús: artigianato e usato, il più grande della zona (orario da verificare sul posto).";
+
+/* =================== SCHEDA: testo, audioguida, video, mappa =================== */
+var sheet=$("#sheet"),speaking=false;
+function stopSpeak(){try{if(window.speechSynthesis)speechSynthesis.cancel()}catch(e){}speaking=false;var b=$("#shSpeak");if(b)b.textContent="Ascolta l'audioguida"}
+function openSheet(name,sub){
+  var txt=INFO[name]||"";var q=encodeURIComponent(name.replace(/ al tramonto| di sera|, il mercato/g,"")+" Andalucía");
+  var canSpeak=!!window.speechSynthesis;
+  $("#shIn").innerHTML='<button type="button" class="x" id="shClose" aria-label="Chiudi">✕</button><div class="grab" aria-hidden="true"></div>'+(hasImg(name)?'<img class="simg" src="'+imgFor(name)+'" alt="" onerror="this.remove()">'+(credit(name)?'<p class="scr">'+esc(credit(name))+'</p>':''):'')+'<p class="eyebrow">'+esc(sub||"Da scoprire")+'</p><h3 id="shTitle">'+esc(name)+'</h3><div class="txt"><p>'+esc(txt)+'</p></div>'+
+   '<div class="acts">'+(canSpeak?'<button type="button" class="btn" id="shSpeak">Ascolta l\'audioguida</button>':'')+
+   '<a class="btn quiet" href="https://www.youtube.com/results?search_query='+q+'" target="_blank" rel="noopener">Guarda un video su YouTube</a>'+
+   '<a class="btn quiet" href="https://www.google.com/maps/search/?api=1&query='+q+'" target="_blank" rel="noopener">Foto e recensioni su Google Maps</a>'+
+   '<a class="btn quiet" href="https://www.tripadvisor.it/Search?q='+q+'" target="_blank" rel="noopener">Recensioni su TripAdvisor</a>'+
+   (SITE[name]?'<a class="btn quiet" href="'+SITE[name]+'" target="_blank" rel="noopener">Sito ufficiale</a>':'')+'</div>';
+  $("#shClose").onclick=function(){sheet.close()};
+  var sp=$("#shSpeak");if(sp)sp.onclick=function(){
+    if(speaking){stopSpeak();return}
+    try{var u=new SpeechSynthesisUtterance(name+". "+txt);u.lang="it-IT";u.rate=1;var v=speechSynthesis.getVoices().filter(function(x){return /^it/i.test(x.lang)})[0];if(v)u.voice=v;
+      u.onend=stopSpeak;speechSynthesis.cancel();speechSynthesis.speak(u);speaking=true;sp.textContent="Ferma l'audioguida"}catch(e){}
+  };
+  if(sheet.showModal)sheet.showModal();else sheet.setAttribute("open","");
+  if(G)gsap.from(sheet,{y:80,duration:.4,ease:"power3.out"});
+}
+sheet.addEventListener("close",stopSpeak);
+sheet.addEventListener("click",function(e){if(e.target===sheet)sheet.close()});
+function links(name,site){var q=encodeURIComponent(name+" Andalucía");return '<span class="lnk"><a href="https://www.google.com/maps/search/?api=1&query='+q+'" target="_blank" rel="noopener">Google</a><a href="https://www.tripadvisor.it/Search?q='+q+'" target="_blank" rel="noopener">TripAdvisor</a>'+(site?'<a href="'+site+'" target="_blank" rel="noopener">Sito</a>':'')+'</span>'}
+
+/* =================== PAGINE =================== */
+var app=$("#app");
+var TILES='<svg class="tiles" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><pattern id="iz" width="80" height="80" patternUnits="userSpaceOnUse"><rect x="1.5" y="1.5" width="77" height="77" fill="none" stroke="#fff4e2" stroke-width="2"/><path d="M40 12 L47 33 L68 40 L47 47 L40 68 L33 47 L12 40 L33 33Z" fill="none" stroke="#fff4e2" stroke-width="3"/><rect x="31" y="31" width="18" height="18" transform="rotate(45 40 40)" fill="none" stroke="#f4b223" stroke-width="2"/><circle cx="40" cy="40" r="4" fill="#f4b223"/><path d="M0 16 A16 16 0 0 0 16 0 M64 0 A16 16 0 0 0 80 16 M80 64 A16 16 0 0 0 64 80 M16 80 A16 16 0 0 0 0 64" fill="none" stroke="#ff9f6b" stroke-width="3"/></pattern></defs><rect width="400" height="400" fill="url(#iz)"/></svg>';
+function pageHTML(st){
+  var id=st.id;
+  if(id==="splash")return '<section class="page splash" data-id="splash">'+TILES+'<div class="col"><p class="who">GIOVANNI &amp; VALENTINA</p><h1 aria-label="Andalusia" class="ttl">Andalusia</h1><p class="when">14 → 21 marzo 2027</p><button type="button" class="btn enter wobble" data-next>Entra</button></div></section>';
+  if(id==="grazie")return '<section class="page splash thanks" data-id="grazie">'+TILES.replace(/#iz\)/,"#iz2)").replace('id="iz"','id="iz2"')+'<div class="col"><p class="who">GIOVANNI &amp; VALENTINA · ANDALUSIA</p><h2 class="ttl bye">¡Buen viaje!</h2><p class="when">Buon viaggio, in spagnolo.</p><p class="lede" style="margin:0 auto">Ci vediamo il 14 marzo all\'aeroporto di Catania, alle 9:45.</p><button type="button" class="btn enter" id="toGuide">Torna alla guida</button><button type="button" class="btn quiet" id="toStart" style="color:var(--paper);border-color:var(--paper)">Ricomincia da capo</button></div></section>';
+  if(id==="welcome")return '<section class="page t-paper" data-id="welcome"><div class="col"><p class="eyebrow">Benvenuti a bordo</p><p class="names ttl">Giovanni <em>&amp;</em> Valentina</p><p class="lede">Sette notti in Andalusia, dal 14 al 21 marzo. Voli, hotel e itinerario sono decisi: tappe, tavola e botteghe le scegliete voi, una domanda alla volta.</p>'+
+    '<div class="ticket"><div class="legs"><div class="leg"><div class="city">CTA<small>DOM 14 · 09:45</small></div><div class="md">EASYJET<i></i>2 h</div><div class="city r">MXP<small>11:45</small></div></div><div class="leg"><div class="city">MXP<small>DOM 14 · 14:15</small></div><div class="md">RYANAIR<i></i>2 h 35</div><div class="city r">SVQ<small>16:50</small></div></div><div class="leg"><div class="city">SVQ<small>DOM 21 · 18:15</small></div><div class="md">RYANAIR<i></i>2 h 50</div><div class="city r">CTA<small>21:05</small></div></div></div><div class="stub">EASYJET · RYANAIR</div></div>'+
+    '<p class="facts"><span>Scalo a Milano</span><span>Bagaglio piccolo</span><span>Budget circa 625 €</span></p><p class="soft">Stesso fuso orario dell\'Italia. A marzo 15–22 °C, a Ronda la sera fa freddo. Voli visti su Google Voli il 24/11/2026: andata su due biglietti separati, 158 € a testa in tutto.</p>'+
+    '<div class="foot"><button type="button" class="btn wide" data-next>Iniziamo</button></div></div></section>';
+
+  if(st.cover)return '<section class="page center cover '+THEME[st.ch]+'" data-id="'+id+'"><div class="col"><p class="num-big">'+st.cover[0]+'</p><h2 class="ttl">'+st.cover[1]+'</h2><p class="lede">'+st.cover[2]+'</p><div class="foot"><button type="button" class="btn wide" data-next>Via</button></div></div></section>';
+  if(st.q){var q=Q[id],theme=THEME[q.ch];
+    var opts=q.multi?('<div class="chips" data-multi="'+id+'">'+q.o.map(function(o){return '<button type="button" class="chip" data-v="'+o[0]+'" aria-pressed="false">'+o[1]+'</button>'}).join("")+'</div>'):('<div class="opts'+(q.o.length===2?" two":"")+'">'+q.o.map(function(o){return '<button type="button" class="opt" data-q="'+id+'" data-v="'+o[0]+'" aria-pressed="false"><b>'+o[1]+'</b><span>'+o[2]+'</span></button>'}).join("")+'</div>');
+    return '<section class="page center '+theme+'" data-id="'+id+'"><div class="col"><div class="qwrap"><p class="eyebrow">'+CH[q.ch]+'</p><h2 class="ttl">'+q.q+'</h2>'+(q.hint?'<p class="soft">'+q.hint+'</p>':'')+opts+'</div>'+(q.multi?'<div class="foot"><button type="button" class="btn wide" data-next>Avanti</button></div>':'')+'</div></section>';}
+  return '<section class="page '+THEME[st.ch]+'" data-id="'+id+'"><div class="col'+(id==="duel"?" wide":"")+'" data-body></div></section>';
+}
+app.innerHTML=ALL.map(pageHTML).join("");
+function pageOf(id){return $('.page[data-id="'+id+'"]',app)}
+function syncAnswers(){
+  $$(".opt",app).forEach(function(b){b.setAttribute("aria-pressed",String(A[b.dataset.q]===b.dataset.v))});
+  $$("[data-multi]",app).forEach(function(g){var v=A[g.dataset.multi]||[];$$(".chip",g).forEach(function(c){c.setAttribute("aria-pressed",String(v.indexOf(c.dataset.v)>-1))})});
+}
+
+/* =================== RIEPILOGO =================== */
+function renderFine(body){
+  var P=hotelPicks(),hpp=hotelCostPP(P),flam=A.p5==="yes";
+  var dinners=[];mealPlan().forEach(function(d){d.meals.forEach(function(m){if(m[0]==="CENA")dinners.push(m[1][0])})});
+  var ints={storia:"storia e palazzi",vista:"panorami",local:"quartieri da local",natura:"natura"};
+  var sat={marbella:"Ancora Marbella",mijas:"Mijas Pueblo",istan:"Istán e Ojén"}[A.p2]||"Ancora Marbella";
+  var rows=[["HOTEL",CITY.map(function(c){return HOTELS[c].opts[P[c]].name}).join(", ")],["RITMO",A.p1==="calm"?"Con calma":"A tutta"],["SABATO",sat],["INTERESSI",(A.p3||[]).map(function(k){return ints[k]}).join(", ")||"Un po' di tutto"],["SERATE",A.p6==="tapas"?"Tapas al bancone":"Tramonti e miradores"],["CENE",dinners.join(", ")]];
+  var bc=budgetCalc();
+  body.innerHTML='<p class="eyebrow">Il nostro viaggio</p><h2 class="mid ttl" style="color:var(--saffron)">Giovanni e Valentina in Andalusia.</h2>'+
+   '<div>'+rows.map(function(r){return '<p class="srec"><b>'+r[0]+'</b><span>'+esc(r[1])+'</span></p>'}).join("")+'</div>'+
+   '<div class="money"><p class="eyebrow">Il conto a testa</p><div class="big num">'+bc.all+' €</div>'+bc.rows.map(function(r){return '<p class="row"><span>'+r[0]+'</span><span class="num">'+r[1]+' €</span></p>'}).join("")+'<p class="soft" style="margin-top:8px">Volo, hotel e auto: '+bc.cap+' € su un tetto di 600 €. Le cifre vengono dal calcolatore del budget.</p></div>'+
+   '<p class="soft">Voli visti su Google Voli e hotel su Booking il 24/11/2026; orari, biglietti e locali verificati a novembre 2026 o da fonti più vecchie. Ricontrollate tutto a febbraio 2027.</p>'+
+   '<details class="more"><summary>Crediti delle foto</summary><div class="inner credits">'+Object.keys(CRED).map(function(k){var c=CRED[k];return '<p class="soft"><b>'+esc(c.title||k)+'</b> · '+esc(c.author)+' · <a href="'+esc(c.licenseUrl||c.source)+'" target="_blank" rel="noopener">'+esc(c.license)+'</a> · <a href="'+esc(c.source)+'" target="_blank" rel="noopener">fonte</a> · ritagliata e ridimensionata</p>'}).join("")+'</div></details>'+
+   '<div class="foot"><button type="button" class="btn wide" data-next>Avanti: i consigli</button><button type="button" class="btn quiet" id="restart">Rifai tutto da capo</button></div>';
+  $("#restart",body).onclick=function(){A={};save("answers",A);["pick","dishes","shops","swap"].forEach(function(k){save(k,null)});curDay=0;syncAnswers();goTo("welcome")};
+}
+function score(r,slot){var sty=A.f2||[],b=A.f1||"mid",s=0;
+  r[5].forEach(function(x){if(sty.indexOf(x)>-1)s+=3});
+  if(r[9])s+=b==="low"?3:1;
+  if(b==="low")s+=r[3]===1?4:r[3]===2?0:-8;
+  else if(b==="special"&&slot==="cena"&&r[3]===3)s+=6;
+  else s+=r[3]===2?3:r[3]===1?2:(slot==="cena"?-1:-4);
+  if(A.p6==="tapas"&&r[5].indexOf("tapas")>-1)s+=1;return s}
+
+/* =================== FOTO, CREDITI, ICONE =================== */
+var PHOTO={"Barrio Santa Cruz al tramonto":"p_santa_cruz","Plaza del Triunfo e Giralda illuminata":"p_giralda","Setas di sera":"p_setas","Plaza del Cabildo":"p_cabildo","Real Alcázar":"p_alcazar","Cattedrale e Giralda":"p_cattedrale_sev","Chiesa del Salvador":"p_salvador","Hospital de los Venerables":"p_venerables","Plaza de España e Parco di María Luisa":"p_plaza_espana","Triana e il suo mercato":"p_triana","Centro Cerámica Triana":"s_ceramica","Palacio de las Dueñas":"p_duenas","Flamenco in un tablao piccolo":"s_flamenca",
+ "Mezquita-Catedral":"p_mezquita","Torre campanario":"p_puente_romano","Judería e Calleja de las Flores":"p_flores","Alcázar de los Reyes Cristianos":"p_alcazar_cor","Palacio de Viana":"p_viana","Santa Marina e San Lorenzo":"p_santa_marina","Plaza del Potro":"p_potro","Puente Romano al tramonto":"p_calahorra","Mezquita all'alba":"p_mezquita","Medina Azahara":"p_medina",
+ "Alcazaba e Gibralfaro":"p_alcazaba","Teatro romano":"p_teatro_romano","Jardines de Puerta Oscura":"p_puerta_oscura","Museo Picasso":"p_picasso","Cattedrale «La Manquita»":"p_catt_malaga","Mercado de Atarazanas":"p_atarazanas","Barrio del Soho":"p_soho","Calle Larios e Malagueta":"p_larios",
+ "Caminito del Rey":"p_caminito","Laghi di Ardales":"p_ardales","Puente Nuevo al tramonto":"p_puente_nuevo","Mirador de Aldehuela e Jardines de Cuenca":"p_aldehuela","Sentiero sotto il Puente Nuevo":"p_cuenca","Baños árabes":"p_banos","Plaza de Toros di Ronda":"p_toros","Casa del Rey Moro":"p_rey_moro",
+ "Cuevas del Sol e Cuevas de la Sombra":"p_setenil_roccia","Mirador del Carmen":"p_setenil","Torre del Homenaje":"p_setenil_torre","Prima sera a Marbella":"p_naranjos","Casco antiguo e Plaza de los Naranjos":"p_naranjos","Barrio Alto di Marbella":"p_naranjos","Avenida del Mar e lungomare":"p_dali","Parque de la Alameda":"p_alameda","Puerto Banús":"p_banus","Museo del Grabado Español":"p_naranjos","Mijas Pueblo":"p_mijas","Istán e Ojén":"p_istan","Mattina della Domenica delle Palme":"p_cattedrale_sev","Calle Sierpes e ultimi acquisti":"s_abanico",
+ "El Rinconcillo":"d_espinacas","Bodega Santa Cruz «Las Columnas»":"d_tapas","Bodeguita Romero":"d_montadito","Casa Morales":"d_jamon","Eslava":"d_tapas","Bar Las Golondrinas":"d_tapas","Bodega Blanco Cerrillo":"d_frito","Bodega Dos de Mayo":"d_jamon","Banchi del Mercado de Triana":"p_mercado_triana",
+ "Bar Santos":"d_tortilla","Casa Pepe de la Judería":"d_rabo","Taberna Salinas":"d_berenjenas","Bodegas Mezquita":"d_flamenquin","Bar Santa Marina":"d_salmorejo","Casa El Pisto":"d_salmorejo",
+ "El Pimpi":"d_boquerones","Casa Lola":"d_tapas","Antigua Casa de Guardia":"p_casa_guardia","Bar dell'Atarazanas":"d_frito","Chiringuito María":"d_espetos","El Tintero":"d_frito",
+ "La Garganta":"p_caminito_sud","El Kiosko":"p_ardales","Pedro Romero":"d_rabo","Tragatá":"d_tapas","Las Maravillas":"d_rabo","Bar El Lechuguita":"d_tapas","Bodega San Francisco":"d_jamon","Bar El Convento":"d_tapas",
+ "Bar Frasquito":"d_flamenquin","Bar La Escueva":"p_setenil","Casa Palmero":"p_setenil_roccia","Bar El Estrecho":"d_boquerones","Bar Altamirano":"d_frito","Taberna Gaspar":"d_tapas","Bar Francisco":"d_tapas",
+ "Confitería La Campana":"s_yemas","Pastelería Roldán":"d_tocino","Casa Mira":"d_tocino","Confitería Daver":"s_yemas","Tocino de cielo da Frasquito":"d_tocino","Churrería Ramón":"d_churros",
+ "Ceramica di Triana":"s_ceramica","Ventagli di Calle Sierpes":"s_abanico","Orecchini e mantón da flamenca":"s_flamenca","Dolci dei conventi":"s_yemas","Cuoio di Córdoba":"s_cuoio","Filigrana d'argento":"s_filigrana","Olio extravergine DOP":"s_olio","Vino dolce di Malaga":"s_vino","Vini di Ronda":"s_vino","Insaccati e payoyo di Setenil":"s_payoyo","Jamón ibérico sottovuoto":"d_jamon",
+ "Mercado de Triana":"p_mercado_triana","Calle Sierpes":"s_abanico","Judería di Córdoba":"p_flores","Mercatino di Puerto Banús":"p_banus"};
+
+var DISHPHOTO=true;
+var CRED={};
+try{fetch("foto/card/credits.json").then(function(r){return r.ok?r.json():[]}).then(function(list){(list||[]).forEach(function(c){CRED[c.id]=c})}).catch(function(){})}catch(e){}
+var AVAIL=["d_ajoblanco", "d_berenjenas", "d_boquerones", "d_churros", "d_espetos", "d_espinacas", "d_flamenquin", "d_frito", "d_gazpacho", "d_jamon", "d_rabo", "d_salmorejo", "d_tapas", "d_tocino", "d_tortilla", "p_alameda", "p_alcazaba", "p_alcazar", "p_alcazar_cor", "p_aldehuela", "p_almocabar", "p_ardales", "p_atarazanas", "p_banos", "p_banus", "p_bobastro", "p_cabildo", "p_calahorra", "p_caminito", "p_caminito_sud", "p_catt_malaga", "p_cattedrale_sev", "p_cuenca", "p_dali", "p_duenas", "p_el_palo", "p_flores", "p_gibralfaro", "p_giralda", "p_istan", "p_larios", "p_medina", "p_mercado_triana", "p_mezquita", "p_mijas", "p_naranjos", "p_picasso", "p_plaza_espana", "p_potro", "p_puente_nuevo", "p_puente_romano", "p_puerta_oscura", "p_rey_moro", "p_salvador", "p_santa_cruz", "p_santa_marina", "p_setas", "p_setenil", "p_setenil_roccia", "p_soho", "p_teatro_romano", "p_toros", "p_triana", "p_venerables", "p_viana", "p_zahara", "s_abanico", "s_ceramica", "s_cuoio", "s_filigrana", "s_olio", "s_payoyo", "s_yemas"];function hasImg(key){return AVAIL.indexOf(PHOTO[key]||key)>-1}
+function imgFor(key){var id=PHOTO[key]||key;return id?"foto/card/"+id+".jpg":""}
+function credit(key){var c=CRED[PHOTO[key]||key];return c?("Foto: "+c.author+" · "+c.license):""}
+function photoTag(key,cls){if(!hasImg(key))return '<span class="'+(cls||"")+' nophoto" aria-hidden="true"></span>';var src=imgFor(key);return '<img class="'+(cls||"")+'" src="'+src+'" alt="" loading="lazy" decoding="async" onerror="this.classList.add(\'noimg\')">'}
+var ICO={
+ plane:'<svg viewBox="0 0 24 24"><path d="M2 13l9-2 4-8 2 1-2 8 7 2-1 2-7-1-3 6-2-1 1-6-8 1z" fill="currentColor"/></svg>',
+ car:'<svg viewBox="0 0 24 24"><path d="M4 16v-4l2-5h12l2 5v4h-2a2 2 0 01-4 0H10a2 2 0 01-4 0z" fill="currentColor"/></svg>',
+ ticket:'<svg viewBox="0 0 24 24"><path d="M3 7h18v3a2 2 0 000 4v3H3v-3a2 2 0 000-4z" fill="currentColor"/></svg>',
+ walk:'<svg viewBox="0 0 24 24"><circle cx="13" cy="4" r="2" fill="currentColor"/><path d="M11 8l-3 13h2l2-7 2 2v5h2v-6l-2-3 1-3 2 2h3v-2h-2l-3-3z" fill="currentColor"/></svg>',
+ fork:'<svg viewBox="0 0 24 24"><path d="M7 2v9a2 2 0 002 2v9h2v-9a2 2 0 002-2V2h-1.5v6h-1V2h-1v6h-1V2zM17 2c-2 0-3 3-3 6v5h2v9h2V2z" fill="currentColor"/></svg>',
+ bed:'<svg viewBox="0 0 24 24"><path d="M2 18V6h2v7h7V8h7a4 4 0 014 4v6h-2v-2H4v2z" fill="currentColor"/></svg>',
+ pin:'<svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7zm0 9a2 2 0 110-4 2 2 0 010 4z" fill="currentColor"/></svg>'
+};
+/* =================== MAZZO «MATCH» =================== */
+/* items: [{key,title,sub,chip,chipCls,cost}] · onDone(likedKeys) */
+var hasDrag=!!(window.Draggable&&window.gsap);if(hasDrag){try{gsap.registerPlugin(Draggable);if(window.InertiaPlugin)gsap.registerPlugin(InertiaPlugin)}catch(e){hasDrag=false}}
+function deck(box,items,onDone,labels){
+  labels=labels||{no:"Salta",yes:"Mi piace"};
+  var i=0,liked=[];
+  box.innerHTML='<div class="deck"><div class="stack"></div><p class="dcount num" aria-live="polite"></p><div class="dbtns"><button type="button" class="dbtn no" aria-label="'+labels.no+'">✕</button><button type="button" class="dbtn info" aria-label="Scopri di più">i</button><button type="button" class="dbtn yes" aria-label="'+labels.yes+'">♥</button></div><p class="dhint">Scorrete la carta o usate i tasti</p></div>';
+  var stack=$(".stack",box),cnt=$(".dcount",box);
+  function card(it,top){return '<article class="card'+(top?' top':'')+'" tabindex="'+(top?0:-1)+'" aria-label="'+esc(it.title)+'">'+photoTag(it.key)+'<span class="stamp like">SÌ</span><span class="stamp nope">NO</span><div class="ov">'+(it.chip?'<span class="tag '+(it.chipCls||'')+'">'+it.chip+'</span>':'')+'<h3>'+it.title+'</h3>'+(it.sub?'<p>'+it.sub+'</p>':'')+(it.cost?'<p class="cost">'+it.cost+'</p>':'')+'</div><small class="cr">'+esc(credit(it.key))+'</small></article>'}
+  function render(){
+    if(i>=items.length){onDone(liked);return}
+    stack.innerHTML=(items[i+1]?card(items[i+1],false):'')+card(items[i],true);
+    cnt.textContent=(i+1)+" di "+items.length+" · "+liked.length+" ♥";
+    var c=$(".card.top",stack);
+    if(hasDrag&&!REDUCE){Draggable.create(c,{type:"x",onDrag:function(){gsap.set(c,{rotation:this.x/18});c.classList.toggle("l",this.x>60);c.classList.toggle("n",this.x<-60)},onRelease:function(){if(Math.abs(this.x)>110)decide(this.x>0);else{gsap.to(c,{x:0,rotation:0,duration:.3,ease:"back.out(2)"});c.classList.remove("l","n")}}})}
+    c.addEventListener("keydown",function(e){if(e.key==="ArrowRight")decide(true);if(e.key==="ArrowLeft")decide(false)});
+  }
+  function decide(yes){
+    var it=items[i],c=$(".card.top",stack);if(!it||!c)return;
+    if(yes)liked.push(it.key);
+    var done=function(){i++;render()};
+    if(G){c.classList.add(yes?"l":"n");gsap.to(c,{x:yes?520:-520,rotation:yes?24:-24,opacity:0,duration:.35,ease:"power2.in",onComplete:done})}else done();
+  }
+  $(".dbtn.yes",box).onclick=function(){decide(true)};
+  $(".dbtn.no",box).onclick=function(){decide(false)};
+  $(".dbtn.info",box).onclick=function(){var it=items[i];if(it)openSheet(it.key,it.chip||"")};
+  render();
+}
+
+/* =================== GIORNI: intestazione =================== */
+var curDay=0;
+function dayKey(x){return x.d+"|"+x.t}
+function renderGiorni(body){
+  var D=planDays();if(curDay>=D.length)curDay=0;
+  body.innerHTML='<p class="eyebrow">La vostra guida · '+(A.p1==="calm"?"con calma":"a tutta")+'</p><h2 class="mid ttl">Otto giorni su misura.</h2>'+
+   '<div class="days" role="group" aria-label="Scegli il giorno">'+D.map(function(x,i){var ok=!!(load("pick")||{})[dayKey(x)];return '<button type="button" data-day="'+i+'" aria-pressed="'+(i===curDay)+'"'+(x.cam?' class="sp"':'')+'>'+x.d+'<b>'+(x.cam?"Caminito":"Giorno "+(i+1))+(ok?' ✓':'')+'</b></button>'}).join("")+'</div>'+
+   '<div id="dayView"></div><div class="foot"><button type="button" class="btn wide" data-next>Avanti: il giorno del Caminito</button></div>';
+  showDay(body,curDay);
+  $(".days",body).onclick=function(e){var b=e.target.closest("button");if(!b)return;curDay=+b.dataset.day;$$(".days button",body).forEach(function(x){x.setAttribute("aria-pressed",String(x===b))});showDay(body,curDay)};
+}
+
+function showDay(body,i){
+  var x=planDays()[i],st=dayStops(x),picks=load("pick")||{},key=dayKey(x),view=$("#dayView",body);
+  var head='<div class="dhead"><div><p class="eyebrow">'+x.d+' marzo</p><h3 class="dtitle">'+x.t+'</h3></div><button type="button" class="fact-btn" aria-label="Lo sapevi?">?</button></div>'+(x.note?'<p class="pill-warn">'+x.note+'</p>':'');
+  var choosable=st.filter(function(s){return s[0]!=="go"});
+  if(!picks[key]&&choosable.length>1){
+    view.innerHTML=head+'<p class="soft">♥ ci andiamo · ✕ saltiamo</p><div id="dk"></div><button type="button" class="btn quiet" id="keepAll">Teniamo tutto</button>';
+    deck($("#dk",view),choosable.map(function(s){return {key:s[1],title:s[1],sub:s[2],chip:TL[s[0]],chipCls:s[0],cost:s[3]}}),function(liked){picks[key]=liked;save("pick",picks);boom(60,.7);renderGiorni(body)},{no:"Saltiamo",yes:"Ci andiamo"});
+    $("#keepAll",view).onclick=function(){picks[key]=choosable.map(function(s){return s[1]});save("pick",picks);renderGiorni(body)};
+  }else{
+    var keep=picks[key]||choosable.map(function(s){return s[1]});
+    var list=st.filter(function(s){return s[0]==="go"||keep.indexOf(s[1])>-1});
+    var meals=(mealPlan().filter(function(d){return d.d===x.d})[0]||{meals:[]}).meals;
+    var lunch=meals.filter(function(m){return m[0]==="PRANZO"})[0],dinner=meals.filter(function(m){return m[0]==="CENA"})[0];
+    var rowsH=[],half=Math.ceil(list.length/2);
+    list.forEach(function(s,k){
+      if(k===half&&lunch)rowsH.push(mealPin(lunch));
+      if(s[0]==="go")rowsH.push('<div class="nrow go"><span class="nic">'+ICO.car+'</span><span class="nt"><b>'+s[1]+'</b></span></div>');
+      else rowsH.push('<button type="button" class="nrow" data-info="'+esc(s[1])+'">'+photoTag(s[1],"thumb")+'<span class="nt"><b>'+s[1]+'</b><span class="chips"><span class="tag '+s[0]+'">'+TL[s[0]]+'</span>'+(s[3]?'<span class="cchip">'+s[3].replace(" a persona","")+'</span>':'')+'</span></span><span class="go-i" aria-hidden="true">›</span></button>');
+    });
+    if(dinner)rowsH.push(mealPin(dinner));
+    view.innerHTML=head+'<div class="nastro">'+rowsH.join("")+'</div><button type="button" class="btn quiet" id="redo">Rifate le scelte del giorno</button>';
+    $("#redo",view).onclick=function(){delete picks[key];save("pick",picks);showDay(body,i)};
+    if(G)gsap.from($$(".nrow",view),{x:-20,opacity:0,duration:.35,stagger:.05,ease:"back.out(2)"});
+  }
+  $(".fact-btn",view).onclick=function(){openFact(x.f,x.t)};
+}
+function mealPin(m){var r=m[1];return '<button type="button" class="nrow meal-pin" data-info="'+esc(r[0])+'"><span class="nic">'+ICO.fork+'</span><span class="nt"><b>'+(m[0]==="PRANZO"?"Pranzo":"Cena")+' · '+r[0]+'</b><span class="chips"><span class="cchip">'+(PR[r[3]]||"")+'</span></span></span><span class="go-i" aria-hidden="true">›</span></button>'}
+function openFact(f,t){$("#shIn").innerHTML='<button type="button" class="x" id="shClose" aria-label="Chiudi">✕</button><p class="eyebrow">Lo sapevi?</p><h3 id="shTitle">'+esc(t)+'</h3><p class="big-fact">'+esc(f)+'</p>';$("#shClose").onclick=function(){sheet.close()};if(sheet.showModal)sheet.showModal();else sheet.setAttribute("open","")}
+
+/* =================== TAVOLA =================== */
+function renderTavola(body){
+  var plan=mealPlan(),b={low:"come i local",special:"con una cena speciale"}[A.f1]||"giusto";
+  body.innerHTML='<p class="eyebrow">Dove mangiamo · budget '+b+'</p><h2 class="mid ttl">Ogni giorno, vicino a dove sarete.</h2><p class="soft">Toccate una carta per foto, recensioni e link. ↻ propone un\'alternativa. Il cuore segna i posti della gente del posto.</p>'+
+   plan.map(function(d,di){return '<div class="mday"><p class="eyebrow">'+d.d+' · '+d.t+'</p>'+(d.meals.length?'<div class="mrow">'+d.meals.map(function(m,mi){var r=m[1];return '<div class="mcard"><button type="button" class="mtap" data-info="'+esc(r[0])+'">'+photoTag(r[0])+'<span class="mlab">'+m[0].toLowerCase()+(r[9]?' · ♥ da local':'')+'</span><span class="mbody"><b>'+r[0]+'</b><span>'+(PR[r[3]]||"☕")+'</span>'+(r[7]?'<span class="mwarn" title="'+esc(r[7])+'">!</span>':'')+'</span></button>'+((m[0]==="PRANZO"||m[0]==="CENA")?'<button type="button" class="swap" data-swap="'+esc(d.d+"|"+m[0])+'" aria-label="Proponi un altro posto">↻</button>':'')+'</div>'}).join("")+'</div>':'<p class="soft">Giornata di viaggio: si mangia al volo.</p>')+'</div>'}).join("")+
+   '<details class="warnbox"><summary><span class="eyebrow">Trappole per turisti</span><b>Dove non sedersi</b></summary>'+TRAP.map(function(t){return '<p><b>'+t[0]+'.</b> '+t[1]+'</p>'}).join("")+'</details>'+
+   '<p class="soft">Orari spagnoli: pranzo 13:30–16, cena 20:30–23. Molti giorni di chiusura sono da verificare su Google Maps.</p>'+
+   '<div class="foot"><button type="button" class="btn wide" data-next>Avanti: i piatti</button></div>';
+  body.onclick=function(e){var s=e.target.closest("[data-swap]");if(!s)return;var ov=load("swap")||{};ov[s.dataset.swap]=(ov[s.dataset.swap]||0)+1;save("swap",ov);renderTavola(body)};
+}
+function ranked(zones,slot,day){var out=[];zones.forEach(function(z,zi){R.forEach(function(r){if(r[1]!==z||r[4].indexOf(slot)<0)return;out.push([score(r,slot)-zi*2,r])})});out.sort(function(a,b){return b[0]-a[0]});return out.map(function(x){return x[1]})}
+function mealPlan(){var used=[],out=[],ov=load("swap")||{};
+  planDays().forEach(function(x){var day={d:x.d,t:x.t,meals:[]};
+    if(x.breakfast)day.meals.push(["COLAZIONE",["Churrería Ramón","mar","Plaza de los Naranjos",1,"",[],"Churros con chocolate prima delle 9:30. Circa 5 € a testa.","",0,1]]);
+    [["PRANZO","pranzo",x.lunch],["CENA","cena",x.dinner]].forEach(function(sl){if(!sl[2])return;
+      var c=ranked(sl[2],sl[1],x.d).filter(function(r){return used.indexOf(r[0])<0});if(!c.length)return;
+      var k=(ov[x.d+"|"+sl[0]]||0)%c.length,r=c[k];used.push(r[0]);day.meals.push([sl[0],r])});
+    if(A.f3==="yes"){var z=(x.dinner||x.lunch||["sev"])[0];var sw=SWEET[z];if(sw&&!(x.breakfast&&z==="mar"))day.meals.push(["DOLCE",[sw[0],z,sw[1],0,"",[],sw[2],"",0,0]])}
+    out.push(day)});return out}
+
+/* =================== PIATTI =================== */
+var DISHES=[["d_salmorejo","Salmorejo","Crema fredda di pomodoro, pane e olio, con uovo e jamón"],["d_flamenquin","Flamenquín","Rotolo di lonza e prosciutto impanato e fritto"],["d_rabo","Rabo de toro","Coda di toro stufata nel vino rosso per ore"],["d_frito","Pescaíto frito","Pesciolini infarinati e fritti nell'olio d'oliva"],["d_espetos","Espetos de sardinas","Sardine sulla canna, arrostite in una barca di sabbia"],["d_jamon","Jamón ibérico","Il prosciutto iberico, «de bellota» se a ghiande"],["d_berenjenas","Berenjenas con miel","Melanzane fritte con miele di canna"],["d_montadito","Montadito de pringá","Panino caldo con la carne dello stufato"],["d_espinacas","Espinacas con garbanzos","Spinaci e ceci con cumino, di origine moresca"],["d_ajoblanco","Ajoblanco","Zuppa fredda di mandorle e aglio con l'uva"],["d_boquerones","Boquerones en vinagre","Alici marinate con aglio e prezzemolo"],["d_tortilla","Tortilla de patatas","La frittata di patate, alta e morbida"],["d_churros","Churros con chocolate","La colazione di festa, con cioccolata densissima"],["d_tocino","Tocino de cielo","Budino di tuorli più denso del crème caramel"]];
+DISHES.forEach(function(d){INFO[d[1]]=d[2]+".";PHOTO[d[1]]=d[0]});
+
+function renderPiatti(body){
+  var saved=load("dishes");
+  if(!saved){
+    body.innerHTML='<p class="eyebrow">A tavola</p><h2 class="mid ttl">Assaggio o no?</h2><p class="soft">♥ lo ordiniamo · ✕ passo</p><div id="dk"></div>';
+    deck($("#dk",body),DISHES.map(function(d){return {key:d[1],title:d[1],sub:d[2]}}),function(l){save("dishes",l);boom(80,.7);renderPiatti(body)},{no:"Passo",yes:"Lo ordiniamo"});
+    return;
+  }
+  var L=DISHES.filter(function(d){return saved.indexOf(d[1])>-1});
+  body.innerHTML='<p class="eyebrow">Da ordinare</p><h2 class="mid ttl">'+(L.length?'La vostra lista per il cameriere.':'Nessun piatto scelto.')+'</h2>'+
+   '<div class="order">'+L.map(function(d){return '<div class="oitem">'+photoTag(d[1],"thumb")+'<span><b>'+d[1]+'</b><small>'+d[2]+'</small></span></div>'}).join("")+'</div>'+
+   '<button type="button" class="btn quiet" id="redoD">Rifate il mazzo</button><div class="foot"><button type="button" class="btn wide" data-next>Avanti: botteghe e mercati</button></div>';
+  $("#redoD",body).onclick=function(){save("dishes",null);renderPiatti(body)};
+}
+
+/* =================== HOTEL: tre per tappa, uno scelto =================== */
+var HLAB=["Economico","Medio","Il più bello"];
+function renderHotels(body){
+  var P=hotelPicks();
+  function tot(){var t=0;CITY.forEach(function(c){t+=HOTELS[c].opts[P[c]].tot});return t}
+  body.innerHTML='<p class="eyebrow">Dove dormite</p><h2 class="mid ttl">Cinque tappe, sette notti.</h2>'+
+   '<p class="duel-note" id="hTot"></p>'+
+   CITY.map(function(c){var h=HOTELS[c];
+    return '<div class="cityblk" data-city="'+c+'"><div class="cityhead">'+photoTag(h.img,"cityimg")+'</div><p class="eyebrow">'+h.city+' · '+h.nights+(h.nights>1?' notti':' notte')+' · '+h.when+'</p>'+
+     '<div class="hopts">'+h.opts.map(function(x,i){return '<button type="button" class="hopt" data-c="'+c+'" data-i="'+i+'" aria-pressed="'+(i===P[c])+'"><span class="hl">'+HLAB[i]+(x.pick?' · scelto da Giovanni':'')+'</span><b>'+esc(x.name)+'</b><span class="hm"><span class="num">'+x.tot+' €</span><span>voto '+fmtScore(x.score)+'</span></span></button>'}).join("")+'</div>'+
+     '<p class="soft hnote">'+(h.nights>1?'Prezzo della camera per '+h.nights+' notti in due. ':'Prezzo della camera per 1 notte in due. ')+'</p><p class="soft hdet"></p><p class="paid">'+h.note+'</p><div class="hlinks"></div></div>'}).join("")+
+   '<p class="soft">Prezzi visti su Booking il 24/11/2026 con gli sconti del Black Friday: ricontrollateli prima di pagare e scegliete la cancellazione gratuita.</p>'+
+   '<div class="foot"><button type="button" class="btn wide" data-next>Avanti: il budget</button></div>';
+  function sync(){var t=tot();$("#hTot",body).textContent="Totale "+t+" € a camera, cioè "+Math.round(t/2)+" € a testa.";
+    CITY.forEach(function(c){var blk=$('[data-city="'+c+'"]',body),x=HOTELS[c].opts[P[c]];$$(".hopt",blk).forEach(function(b){b.setAttribute("aria-pressed",String(+b.dataset.i===P[c]))});$(".hlinks",blk).innerHTML=links(x.name+" "+HOTELS[c].city);$(".hdet",blk).textContent=(x.det||"")+(x.est?(x.det?" ":"")+"Prezzo "+x.est+".":"")})}
+  body.onclick=function(e){var b=e.target.closest(".hopt");if(!b)return;P[b.dataset.c]=+b.dataset.i;save("hotel",P);sync();if(G)gsap.fromTo(b,{scale:.95},{scale:1,duration:.35,ease:"back.out(3)"})};
+  sync();
+}
+
+/* =================== CALCOLATORE DEL BUDGET =================== */
+/* importi a camera divisi per 2; stime del 24/11/2026 */
+var TIX=[["alcazar","Real Alcázar",15.5],["catt","Cattedrale e Giralda",13],["setas","Setas di sera",16],["mezq","Mezquita di giorno (all'alba è gratis)",15],["torre","Torre campanario",4],["alccor","Alcázar de los Reyes Cristianos",7],["alcazaba","Alcazaba e Gibralfaro",10],["picasso","Museo Picasso",13],["caminito","Caminito del Rey e navetta",12.5],["toros","Plaza de Toros di Ronda",8],["moro","Casa del Rey Moro",10]];
+function bstate(){var b=load("budget")||{};if(b.cover===undefined)b.cover=true;if(!b.tix)b.tix={alcazar:1,catt:1,alcazaba:1,caminito:1};if(!b.meal)b.meal=30;return b}
+function eur(v){return (Math.round(v*100)/100).toFixed(2).replace(".00","").replace(".",",")}
+function budgetCalc(){
+  var b=bstate(),P=hotelPicks(),ht=0;CITY.forEach(function(c){ht+=HOTELS[c].opts[P[c]].tot});
+  var fl=158,ho=ht/2,car=(b.cover?220:150)/2,fuel=80/2,park=90/2,bus=12;
+  var tix=TIX.reduce(function(a,t){return a+(b.tix[t[0]]?t[2]:0)},0),meal=b.meal*7;
+  var cap=fl+ho+car+fuel+park,all=cap+bus+tix+meal;
+  return {b:b,cap:Math.round(cap),all:Math.round(all),tix:tix,meal:meal,
+   rows:[["Voli",fl],["Hotel, 7 notti",Math.round(ho)],["Auto 5 giorni"+(b.cover?" con copertura totale":" con assicurazione base"),Math.round(car)],["Carburante",Math.round(fuel)],["Parcheggi",Math.round(park)],["Bus EA",bus],["Ingressi",eur(tix)],["Pasti, 7 giorni",meal]]};
+}
+function renderBudget(body){
+  var b=bstate();
+  body.innerHTML='<p class="eyebrow">Il budget a testa, in due</p><h2 class="mid ttl">Quanto spendiamo?</h2>'+
+   '<div class="money" id="bMoney"></div>'+
+   '<h3>Auto</h3><div class="seg" role="group" aria-label="Assicurazione dell\'auto"><button type="button" data-cover="1">Copertura totale</button><button type="button" data-cover="0">Base</button></div>'+
+   '<p class="soft" id="bCarNote"></p>'+
+   '<h3>Ingressi</h3><div class="tixlist">'+TIX.map(function(t){return '<label class="check"><input type="checkbox" data-t="'+t[0]+'"'+(b.tix[t[0]]?' checked':'')+'><span class="txt"><b>'+t[1]+'</b><span>'+eur(t[2])+' € a persona</span></span></label>'}).join("")+'</div>'+
+   '<h3>Pasti</h3><label class="range"><span>Al giorno a persona: <b class="num" id="bMealV"></b></span><input type="range" min="20" max="50" step="5" id="bMeal" value="'+b.meal+'" aria-label="Spesa per i pasti al giorno a persona"></label>'+
+   '<p class="soft">Carburante circa 80 € e parcheggi circa 90 € a camera, bus EA 12 € a testa: stime del 24/11/2026.</p>'+
+   '<div class="foot"><button type="button" class="btn wide" data-next>Avanti: i nostri giorni</button></div>';
+  function sync(){var c=budgetCalc(),over=c.cap-600;
+    $("#bMoney",body).innerHTML='<p class="eyebrow">Totale a testa</p><div class="big num">'+c.all+' €</div>'+
+     '<div class="capline"><span>Volo, hotel e auto</span><b class="num'+(over>0?' over':'')+'">'+c.cap+' € / 600 €</b></div><div class="pbar"><i style="width:'+Math.min(100,c.cap/6)+'%"></i></div>'+
+     '<p class="soft" style="margin:6px 0 8px">'+(over>0?'Sopra il tetto di '+over+' €.':'Sotto il tetto di '+(-over)+' €.')+'</p>'+
+     c.rows.map(function(r){return '<p class="row"><span>'+r[0]+'</span><span class="num">'+r[1]+' €</span></p>'}).join("");
+    $$(".seg button",body).forEach(function(x){x.setAttribute("aria-pressed",String(+x.dataset.cover===(c.b.cover?1:0)))});
+    $("#bCarNote",body).textContent=c.b.cover?"Circa 220 € a camera per 5 giorni, senza franchigia.":"Circa 150 € a camera per 5 giorni, ma con una franchigia di circa 1.000 € in caso di danni.";
+    $("#bMealV",body).textContent=c.b.meal+" €";}
+  body.onclick=function(e){var x=e.target.closest("[data-cover]");if(x){b.cover=x.dataset.cover==="1";save("budget",b);sync()}};
+  body.onchange=function(e){var t=e.target;if(t.dataset&&t.dataset.t){b.tix[t.dataset.t]=t.checked?1:0;save("budget",b);sync()}};
+  body.oninput=function(e){if(e.target.id==="bMeal"){b.meal=+e.target.value;save("budget",b);sync()}};
+  sync();
+}
+
+/* =================== STORIE (consigli e lista) =================== */
+var storyEl=null;
+function stories(title,items,opts){
+  /* items: [{h,t,key?}] · opts:{start, onDone(i), check:{isDone(i),toggle(i)}} */
+  opts=opts||{};var i=opts.start||0,timer=null;
+  if(!storyEl){storyEl=document.createElement("div");storyEl.className="story";storyEl.setAttribute("role","dialog");storyEl.setAttribute("aria-modal","true");document.body.appendChild(storyEl)}
+  function close(){storyEl.hidden=true;document.body.style.overflow="";if(opts.onClose)opts.onClose()}
+  function show(){
+    if(i<0)i=0;if(i>=items.length){close();return}
+    var it=items[i];
+    storyEl.className="story st"+(i%4);
+    storyEl.innerHTML='<div class="sbars">'+items.map(function(_,k){return '<i class="'+(k<i?"full":k===i?"now":"")+'"></i>'}).join("")+'</div><div class="stop-row"><span class="eyebrow">'+esc(title)+' · '+(i+1)+' di '+items.length+'</span><button type="button" class="sx" aria-label="Chiudi">✕</button></div>'+
+     '<div class="sbody"><h3>'+it.h+'</h3><p>'+it.t+'</p></div>'+
+     (opts.check?'<div class="sacts"><button type="button" class="btn sdone">'+(opts.check.isDone(i)?'Fatto ✓':'Segna fatto')+'</button><button type="button" class="btn quiet slater">'+(i<items.length-1?'Dopo':'Chiudi')+'</button></div>':'<p class="stap">Tocca a destra per andare avanti</p>')+
+     '<button type="button" class="szone prev" aria-label="Precedente"></button><button type="button" class="szone next" aria-label="Successivo"></button>';
+    $(".sx",storyEl).onclick=close;
+    $(".szone.prev",storyEl).onclick=function(){i--;show()};
+    $(".szone.next",storyEl).onclick=function(){i++;show()};
+    if(opts.check){$(".sdone",storyEl).onclick=function(){if(!opts.check.isDone(i))opts.check.toggle(i);i++;show()};$(".slater",storyEl).onclick=function(){i++;show()}}
+    if(opts.onSeen)opts.onSeen(i);
+    if(G){gsap.from($(".sbody",storyEl),{y:30,opacity:0,duration:.4,ease:"back.out(2)"});var nb=$(".sbars .now",storyEl);if(nb)gsap.fromTo(nb,{"--p":0},{"--p":1,duration:.6})}
+  }
+  storyEl.hidden=false;document.body.style.overflow="hidden";show();
+  storyEl.onkeydown=function(e){if(e.key==="Escape")close();if(e.key==="ArrowRight"){i++;show()}if(e.key==="ArrowLeft"){i--;show()}};
+  setTimeout(function(){var b=$(".sx",storyEl);if(b)b.focus()},50);
+}
+function renderConsigli(body){
+  var seen=load("seenTips")||{};
+  body.innerHTML='<p class="eyebrow">Consigli</p><h2 class="mid ttl">Sei storie da sapere.</h2><p class="soft">Toccate un cerchio. Diventa verde quando l\'avete visto.</p><div class="circles">'+
+   TIPS.map(function(g,gi){var done=(seen[gi]||0)>=g[2].length;return '<button type="button" class="circle'+(done?' seen':'')+'" data-g="'+gi+'"><span class="ring c'+gi+'"><span class="cn">'+(gi+1)+'</span></span><b>'+g[0]+'</b><small>'+g[2].length+' storie</small></button>'}).join("")+'</div>'+
+   '<div class="foot"><button type="button" class="btn wide" data-next>Avanti: prima di partire</button></div>';
+  $(".circles",body).onclick=function(e){var c=e.target.closest(".circle");if(!c)return;var gi=+c.dataset.g,g=TIPS[gi];
+    stories(g[0],g[2].map(function(t){return {h:t[0],t:t[1]}}),{onSeen:function(i){var s=load("seenTips")||{};s[gi]=Math.max(s[gi]||0,i+1);save("seenTips",s)},onClose:function(){renderConsigli(body)}})};
+}
+function renderPartire(body){
+  var GR=partireGroups(),done=load("checks")||[],tot=0,ok=0;
+  GR.forEach(function(g){g[2].forEach(function(c){tot++;if(done.indexOf(c[0])>-1)ok++})});
+  body.innerHTML='<p class="eyebrow">Prima di partire</p><h2 class="mid ttl">Cosa vi serve.</h2><div class="pbar"><i style="width:'+(tot?ok/tot*100:0)+'%"></i></div><p class="count">'+ok+' di '+tot+' fatte</p>'+
+   '<div class="bags">'+GR.map(function(g,gi){var n=g[2].filter(function(c){return done.indexOf(c[0])>-1}).length;var pct=g[2].length?n/g[2].length:0;return '<button type="button" class="bagt'+(pct===1?' full':'')+'" data-g="'+gi+'"><svg class="pring" viewBox="0 0 44 44"><circle cx="22" cy="22" r="19"/><circle class="v" cx="22" cy="22" r="19" style="stroke-dasharray:'+(119.4*pct)+' 119.4"/></svg><b>'+g[0]+'</b><small class="num">'+n+'/'+g[2].length+'</small></button>'}).join("")+'</div>'+
+   '<div class="foot"><button type="button" class="btn wide" data-next>Fine</button></div>';
+  if(ok===tot&&tot)boom(120);
+  $(".bags",body).onclick=function(e){var b=e.target.closest(".bagt");if(!b)return;var g=GR[+b.dataset.g];
+    stories(g[0],g[2].map(function(c){return {h:c[0],t:c[1]}}),{check:{isDone:function(i){return (load("checks")||[]).indexOf(g[2][i][0])>-1},toggle:function(i){var d=load("checks")||[],k=g[2][i][0],p=d.indexOf(k);if(p<0)d.push(k);else d.splice(p,1);save("checks",d)}},onClose:function(){renderPartire(body)}})};
+}
+
+/* =================== BOTTEGHE =================== */
+function renderBotteghe(body){
+  var cats=A.s1&&A.s1.length?A.s1:["ceramica","moda","dolci","artigiani","sapori"];
+  var L=B.filter(function(b){return cats.indexOf(b[1])>-1}),saved=load("shops");
+  var bazar='<h3>I mercati</h3><div class="hrow">'+BAZ.map(function(z){return '<button type="button" class="hcard" data-info="'+esc(z[0])+'">'+photoTag(z[0])+'<span><b>'+z[0]+'</b><small>'+z[1]+'</small></span></button>'}).join("")+'</div>';
+  var bag='<p class="pill-warn">Solo bagaglio piccolo: niente liquidi oltre 100 ml. Olio e vino si spediscono o serve una valigia in stiva.</p>';
+  var warn=(A.s1||[]).indexOf("falsi")>-1?'<details class="warnbox"><summary><span class="eyebrow">Avvertenza · a vostro rischio</span><b>Borse e vestiti contraffatti</b></summary><p>Li vendono i venditori ambulanti sui lungomari e nei centri. In Italia comprare un falso è un illecito anche per chi lo compra: sanzione da 100 a 7.000 € (art. 1, comma 7, decreto legge 35/2005), e in Spagna la polizia locale può sequestrare la merce. Qualità e materiali non sono garantiti.</p></details>':'';
+  if(!saved&&L.length>1){
+    body.innerHTML='<p class="eyebrow">Botteghe e mercati</p><h2 class="mid ttl">Quali botteghe?</h2>'+bag+'<p class="soft">♥ ci passiamo · ✕ saltiamo</p><div id="dk"></div>'+warn+bazar;
+    deck($("#dk",body),L.map(function(b){return {key:b[0],title:b[0],sub:b[4],chip:b[3]}}),function(l){save("shops",l);boom(80,.7);renderBotteghe(body)},{no:"Saltiamo",yes:"Ci passiamo"});
+    return;
+  }
+  var K=L.filter(function(b){return !saved||saved.indexOf(b[0])>-1});
+  body.innerHTML='<p class="eyebrow">Botteghe e mercati</p><h2 class="mid ttl">Le vostre botteghe.</h2>'+bag+warn+
+   '<div class="nastro">'+K.map(function(b){return '<div class="srow2"><button type="button" class="nrow" data-info="'+esc(b[0])+'">'+photoTag(b[0],"thumb")+'<span class="nt"><b>'+b[0]+'</b><span class="chips"><span class="cchip">'+b[3]+'</span>'+(b[5]?'<span class="cchip warnc">'+b[5]+'</span>':'')+'</span></span><span class="go-i" aria-hidden="true">›</span></button>'+links(b[0]+" "+b[2].split(",")[0],SITE[b[0]])+'</div>'}).join("")+'</div>'+
+   (saved?'<button type="button" class="btn quiet" id="redoS">Rifate il mazzo</button>':'')+bazar+
+   '<div class="foot"><button type="button" class="btn wide" data-next>Il nostro viaggio</button></div>';
+  var rs=$("#redoS",body);if(rs)rs.onclick=function(){save("shops",null);renderBotteghe(body)};
+}
+
+/* =================== CONSIGLI =================== */
+var TIPS=[
+ ["In auto","t",[["Ritiro e riconsegna a Siviglia","Martedì 16 il ritiro, domenica 21 la riconsegna, sempre in aeroporto: niente supplemento."],["Centri storici a piedi","Córdoba (zona ACIRE con telecamere), Marbella e Setenil: auto al parcheggio e poi a piedi."],["Ronda: niente Puente Nuevo","Le auto non di Ronda non possono passarci: multa di 70 € più circa 30 € dal noleggiatore."],["Zone a basse emissioni","Un'auto a noleggio recente ha il bollino giusto ed entra; i parcheggi pubblici sono sempre raggiungibili."],["Autostrade","Il percorso consigliato è senza pedaggi. L'AP-7 sulla costa si paga."]]],
+ ["Il noleggio","n",[["Carta di credito","Non di debito né prepagata, intestata a chi guida, con 300–1.500 € liberi per la cauzione."],["Pieno/pieno","Solo «lleno/lleno»: con «pieno/vuoto» pagate il carburante maggiorato."],["Foto e video","Dell'auto al ritiro e alla riconsegna, con chilometri e livello del carburante."],["Franchigia","Con l'assicurazione base si rischiano 1.000–1.500 €: la copertura totale costa 10–25 € al giorno."],["Di chi fidarsi","Sixt, Europcar, Avis, Hertz, Enterprise con il banco in aeroporto. Prudenza con le tariffe troppo basse."]]],
+ ["A tavola","m",[["Orari spagnoli","Pranzo 13:30–16, cena 20:30–23. Tra le 16 e le 20 molte cucine sono chiuse."],["Media ración","Per dividere in due senza esagerare."],["Menú del día","A pranzo nei giorni feriali, 12–16 € con primo, secondo e dolce."],["Pane e coperto","A volte il pane è in conto: se non lo volete, si può rifiutare."],["Mance","Non obbligatorie: il resto spicciolo al bar, 5–10% al ristorante se il servizio è stato buono."]]],
+ ["Semana Santa","s",[["Domenica 21 sono le Palme","Pasqua 2027 cade il 28 marzo: domenica comincia la settimana santa."],["Già dal 19","Venerdì e sabato ci sono processioni minori, anche a Malaga e Marbella."],["Prove notturne","Tra il 15 e il 20 marzo i costaleros provano di sera: belle da vedere, rallentano il traffico."],["Domenica a Siviglia","Orari delle cofradías sul programma ufficiale 2027. Dal pomeriggio il centro chiude: bus EA entro le 15:30."],["Hotel","Nel fine settimana i prezzi salgono: prenotate presto con cancellazione gratuita."]]],
+ ["Furbizie","f",[["Il rametto di rosmarino","Davanti alla Cattedrale ve lo regalano, poi chiedono soldi: dite no."],["Le terrazze con le foto","Menu fotografati e paella vicino ai monumenti: si paga il panorama."],["I buttadentro","Intorno alla Mezquita: meglio la Corredera e San Lorenzo."],["Gorrillas","A Ronda chi vi «aiuta» a parcheggiare chiede la mancia: usate i parcheggi ufficiali."],["Flamenco con cena","Gli spettacoli per turisti valgono poco: meglio un tablao piccolo o una peña."]]],
+ ["Da local","l",[["Cinque parole","Hola, gracias, por favor, la cuenta, ¡qué bonito!"],["Il caffè a Malaga","Al Café Central si ordina con la scala malagueña: sombra, nube, mitad."],["Tapas al bancone","Si ordina al banco e si paga alla fine: a volte il conto lo scrivono col gesso."],["Telefono","Siete nell'Unione europea: il roaming è incluso nel vostro piano."],["Prese","Uguali alle nostre: niente adattatore."]]]
+];
+function partireGroups(){
+  var P=hotelPicks(),flam=A.p5==="yes";
+  var bag=[["Scarpe da trekking chiuse","Obbligatorie sul Caminito: niente sandali."],["Impermeabile leggero","Sul Caminito gli ombrelli sono vietati."],["Piumino leggero","A Ronda e Setenil la sera si va verso i 5 °C."],["Borraccia da 1 litro","Sul Caminito non ci sono acqua né bagni."],["Contanti","2,50 € a testa per la navetta del Caminito e per i bar di quartiere."],["Solo il bagaglio piccolo","Controllate misure easyJet e Ryanair. Niente liquidi oltre 100 ml."]];
+  var book=[["Caminito del Rey, subito","Giovedì 18, ingresso generale alle 11:50 (al 24/11/2026 era l'unica fascia del mattino rimasta), più parcheggio da 2 €."],["Real Alcázar","Lunedì 15, fascia delle 9:30."],["Cattedrale di Siviglia","Online: 1 € in meno e niente coda."],["Hotel con cancellazione gratuita",CITY.map(function(c){return HOTELS[c].opts[P[c]].name}).join(", ")+"."],["Auto dal 16 al 21","Ritiro e riconsegna all'aeroporto di Siviglia, copertura totale, pieno/pieno."],["I tre voli","easyJet Catania → Malpensa e Ryanair Malpensa → Siviglia sono biglietti separati: se perdete la coincidenza nessuno vi riprotegge."]];
+  if(flam)book.push(["Flamenco","Un tablao piccolo per lunedì sera."]);
+  return [["Documenti","doc",[["Carta d'identità valida","Basta per la Spagna."],["Tessera sanitaria europea","La TEAM vale in Spagna."],["Patente","Per il noleggio, insieme alla carta di credito."],["Carta di credito","Intestata a chi guida, per la cauzione dell'auto."]]],["Valigia","bag",bag],["Telefono","tel",[["Roaming UE","Incluso: niente eSIM."],["Google Maps offline","Scaricate la Serranía di Ronda: in alcune valli non c'è segnale."],["Biglietti nel telefono","Caminito, Alcázar e carte d'imbarco."],["Orari ufficiali","Una settimana prima ricontrollate Alcázar, Mezquita e Caminito."]]],["Da prenotare","book",book]];
+}
+
+/* =================== IL CAMINITO: nastro e barra dei costi =================== */
+function renderAppendice(body){
+  var cost=[["Biglietti",20,"var(--cobalt)","10 € a persona, ingresso generale"],["Navetta",5,"var(--tulip)","2,50 € a persona, solo contanti"],["Parcheggio",2,"var(--pistachio)","Centro visitatori, prenotabile con il biglietto"],["Pranzo",40,"var(--saffron)","La Garganta, 15–25 € a testa"]];
+  var tot=cost.reduce(function(a,c){return a+c[1]},0);
+  var tl=[["09:45","car","Partenza da Malaga"],["10:45","pin","Parcheggio del centro visitatori"],["10:50","walk","A piedi verso il controllo, 30–50 minuti"],["11:20","ticket","Al controllo con il documento"],["11:50","walk","Ingresso: 7,7 km di passerelle"],["14:30","pin","Arrivo a El Chorro"],["14:45","fork","Pranzo veloce"],["15:30","car","Navetta per il parcheggio"],["15:50","car","Verso Ronda, circa 1 ora"],["17:00","bed","A Ronda"]];
+  function trows(list){return '<div class="tbl">'+list.map(function(r){return '<div class="r"><span><b>'+r[0]+'</b>'+(r[1]?'<small>'+r[1]+'</small>':'')+'</span><span class="v">'+r[2]+'</span></div>'}).join("")+'</div>'}
+  body.innerHTML='<p class="eyebrow">Caminito del Rey · giovedì 18</p><h2 class="mid ttl">Il giorno sospeso.</h2>'+
+   '<p class="pill-warn">Da comprare subito sul sito ufficiale: le fasce del mattino finiscono per prime.</p>'+
+   '<div class="cheap"><p class="eyebrow">Quanto costa la giornata</p><div class="big num">'+tot+' €</div><p class="soft" style="opacity:1">in due, pranzo compreso</p>'+
+   '<div class="costbar">'+cost.map(function(c){return '<i style="flex:'+c[1]+';background:'+c[2]+'" title="'+c[0]+'"></i>'}).join("")+'</div>'+
+   '<div class="clegend">'+cost.map(function(c){return '<button type="button" class="cl" data-tip="'+esc(c[3])+'"><i style="background:'+c[2]+'"></i>'+c[0]+'<b class="num">'+c[1]+' €</b></button>'}).join("")+'</div><p class="ctip soft" aria-live="polite">Toccate una voce per il dettaglio.</p></div>'+
+   '<h3>La giornata</h3><div class="ptl">'+tl.map(function(r){return '<div class="pt"><span class="ptime num">'+r[0]+'</span><span class="pdot">'+ICO[r[1]]+'</span><span class="plab">'+r[2]+'</span></div>'}).join("")+'</div>'+
+   '<details class="more"><summary>Biglietti e fasce</summary><div class="inner">'+trows([["Ingresso generale","Fasce rimaste il 24/11/2026: 11:50 e 14:30","10 €"],["Visita guidata ufficiale","Gruppi fino a 30, spagnolo o inglese; fasce dalle 9:00 alle 15:20","18 €"],["Navetta El Chorro → parcheggio","Valida tutto il giorno, a bordo solo contanti","2,50 €"],["Parcheggio","240 posti, prenotabile con il biglietto","2 €"],["Orario invernale","Fino al 27/03/2027","ingressi 9:00–14:30"]])+'</div></details>'+
+   '<details class="more"><summary>Regole</summary><div class="inner">'+trows([["Casco obbligatorio","Ve lo danno al controllo",""],["Età","Vietato sotto gli 8 anni",""],["Scarpe chiuse","Niente sandali né tacchi",""],["Niente ombrelli","Solo impermeabile",""],["Vento oltre 55 km/h","Il sentiero chiude: i biglietti si cambiano dal sito («Canjear entradas por cierre»)",""],["Lunedì","Chiuso. Giovedì nessun problema",""]])+'</div></details>'+
+   '<details class="more"><summary>Cosa portare</summary><div class="inner">'+trows([["Acqua","Almeno 1 litro a testa: sul percorso non c'è",""],["Documento","Serve al controllo",""],["Contanti","Per la navetta",""],["Uno strato in più","Nella gola può tirare vento",""],["Telefono carico","Le foto più belle sono sul ponte sospeso",""]])+'</div></details>'+
+   '<a class="btn quiet" href="https://www.caminitodelrey.info/es/entradas/comprar" target="_blank" rel="noopener">Sito ufficiale dei biglietti</a>'+
+   '<p class="soft">Dati verificati sul sito ufficiale il 24/11/2026. Ricontrollate orari e navetta prima di partire.</p>'+
+   '<div class="foot"><button type="button" class="btn wide" data-next>Avanti: a tavola</button></div>';
+  $(".clegend",body).onclick=function(e){var c=e.target.closest(".cl");if(!c)return;$(".ctip",body).textContent=c.dataset.tip};
+  if(G){gsap.from($$(".costbar i",body),{scaleX:0,transformOrigin:"left",duration:.6,stagger:.08,ease:"power2.out"});gsap.from($$(".pt",body),{x:-16,opacity:0,duration:.3,stagger:.04})}
+}
+R.forEach(function(r){INFO[r[0]]=r[6]+(r[7]?" "+r[7]+".":"")});
+Object.keys(SWEET).forEach(function(k){var w=SWEET[k];if(w)INFO[w[0]]=w[2]});
+INFO["Churrería Ramón"]="Churros con chocolate in Plaza de los Naranjos: andate prima delle 9:30. Circa 5 € a testa.";
+var RENDER={"hotels":renderHotels,"budget":renderBudget,"r-giorni":renderGiorni,"r-tavola":renderTavola,"piatti":renderPiatti,"r-botteghe":renderBotteghe,"fine":renderFine,"consigli":renderConsigli,"partire":renderPartire,"appendice":renderAppendice};
+
+/* =================== NAVIGAZIONE =================== */
+var curId="splash";
+function updateBar(){
+  var F=FLOW(),i=F.findIndex(function(s){return s.id===curId}),st=F[i];
+  $("#bar").hidden=curId==="splash"||curId==="grazie";
+  var ch=st.ch||(st.q?Q[st.id].ch:"");$("#barLab").textContent=CH[ch]||"";
+  if(st.q){var list=F.filter(function(s){return s.q&&Q[s.id].ch===Q[st.id].ch});$("#barCnt").textContent=(list.findIndex(function(s){return s.id===st.id})+1)+" di "+list.length}else $("#barCnt").textContent="";
+  $("#barProg").style.width=(i/(F.length-1)*100)+"%";
+}
+function animIn(p){
+  if(!G)return;
+  gsap.fromTo(p,{x:40,opacity:0},{x:0,opacity:1,duration:.45,ease:"power3.out"});
+  var t=$(".ttl",p);
+  if(t&&window.SplitText&&!t._split&&p.dataset.id!=="splash"){t._split=new SplitText(t,{type:"words",wordsClass:"w"})}
+  if(t&&t._split)gsap.from(t._split.words,{yPercent:60,rotate:-6,opacity:0,duration:.6,ease:"back.out(2.2)",stagger:.06,delay:.08});
+  var items=$$(".opt,.chip",p);if(items.length)gsap.from(items,{y:24,opacity:0,duration:.45,ease:"back.out(2)",stagger:.07,delay:.25});
+}
+function goTo(id,push){
+  var p=pageOf(id);if(!p)return;
+  if(RENDER[id])RENDER[id]($("[data-body]",p));
+  $$(".page",app).forEach(function(x){x.hidden=x!==p});
+  curId=id;updateBar();window.scrollTo(0,0);
+  if(push!==false){try{history.pushState({id:id},"")}catch(e){}}
+  animIn(p);
+  if(id==="r-hotel"||id==="fine"||id==="grazie")setTimeout(function(){boom(id==="grazie"?220:id==="fine"?180:130);if(id==="grazie")setTimeout(function(){boom(160,.4)},700)},350);
+  var f=$(".ttl",p);if(f){f.setAttribute("tabindex","-1");try{f.focus({preventScroll:true})}catch(e){}}
+}
+function next(){var F=FLOW(),i=F.findIndex(function(s){return s.id===curId});if(i<F.length-1)goTo(F[i+1].id)}
+window.addEventListener("popstate",function(e){goTo(e.state&&e.state.id?e.state.id:"splash",false)});
+$("#back").addEventListener("click",function(){history.back()});
+
+app.addEventListener("click",function(e){
+  var inf=e.target.closest("[data-info]");if(inf){openSheet(inf.dataset.info,CH[FLOW().filter(function(s){return s.id===curId})[0].ch]||"");return}
+  var n=e.target.closest("[data-next]");if(n){if(curId==="splash")boom(70,.85);next();return}
+  var o=e.target.closest(".opt");
+  if(o){A[o.dataset.q]=o.dataset.v;save("answers",A);syncAnswers();if(G)gsap.fromTo(o,{scale:.94},{scale:1,duration:.35,ease:"back.out(3)"});setTimeout(next,REDUCE?0:380);return}
+  var c=e.target.closest("[data-multi] .chip");
+  if(c){var k=c.parentNode.dataset.multi,arr=A[k]||[],v=c.dataset.v,p=arr.indexOf(v);if(p>-1)arr.splice(p,1);else arr.push(v);A[k]=arr;save("answers",A);syncAnswers();if(G)gsap.fromTo(c,{scale:.9},{scale:1,duration:.3,ease:"back.out(3)"})}
+});
+
+$("#toGuide").onclick=function(){goTo("r-giorni")};
+$("#toStart").onclick=function(){A={};save("answers",A);save("hotel",null);["pick","dishes","shops","swap"].forEach(function(k){save(k,null)});curDay=0;syncAnswers();goTo("splash")};
+syncAnswers();
+try{history.replaceState({id:"splash"},"")}catch(e){}
+goTo("splash",false);
+if(G&&window.SplitText){var sp=new SplitText(".splash h1",{type:"chars",charsClass:"ch"});gsap.from(sp.chars,{yPercent:70,rotate:-14,scale:.6,duration:.9,ease:"back.out(2.4)",stagger:.06})}
+else{var t0=$(".splash h1");t0.innerHTML=t0.textContent.split("").map(function(c){return '<span class="ch">'+c+'</span>'}).join("")}
+})();
+</script>
+
+</body>
+</html>
