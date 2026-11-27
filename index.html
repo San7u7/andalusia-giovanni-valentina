@@ -463,18 +463,20 @@ var A=load("answers")||{};
 
 /* =================== HOTEL: tre opzioni reali per città =================== */
 /* prezzi totali della camera per 2 persone per tutte le notti della tappa, visti su Booking il 24/11/2026 con sconti Black Friday: da riverificare */
-var CITY=["sev","cor","mal","ron","mar"];
+var CITY=["sev","cor","mal","ron","mar","mal2"];
 var HOTELS={
- sev:{ci:"2027-03-14",co:"2027-03-16",city:"Siviglia",nights:2,when:"Dom 14 e lun 15",img:"p_santa_cruz",note:"L'auto qui non serve: la ritirate martedì in aeroporto.",
+ sev:{ci:"2027-03-14",co:"2027-03-16",city:"Siviglia",nights:2,when:"Dom 14 e lun 15",img:"p_santa_cruz",note:"Fino a Malaga niente auto: Córdoba e Malaga si raggiungono in treno.",
   opts:[{name:"Patio de las Cruces",score:8.3,tot:124},{name:"Madrid de Sevilla by SHS",score:8.4,tot:148,pick:1},{name:"Petit Palace Vargas",score:9.0,tot:186}]},
- cor:{ci:"2027-03-16",co:"2027-03-17",city:"Córdoba",nights:1,when:"Mar 16",img:"p_flores",note:"Il centro storico è zona ACIRE con telecamere: chiedete all'hotel dove lasciare l'auto e se va comunicata la targa.",
+ cor:{ci:"2027-03-16",co:"2027-03-17",city:"Córdoba",nights:1,when:"Mar 16",img:"p_flores",note:"Si arriva in treno: dalla stazione al centro storico sono circa 20 minuti a piedi, o un taxi.",
   opts:[{name:"Hotel Selu",score:8.9,tot:52},{name:"Hotel Suite Generis",score:8.9,tot:54,pick:1},{name:"Casa Museo de la Mezquita",score:8.6,tot:59}]},
- mal:{ci:"2027-03-17",co:"2027-03-18",city:"Malaga",nights:1,when:"Mer 17",img:"p_gibralfaro",note:"Parcheggio: chiedete all'hotel o usate un garage del centro (12–22 € al giorno).",
+ mal:{ci:"2027-03-17",co:"2027-03-18",city:"Malaga",nights:1,when:"Mer 17",img:"p_gibralfaro",note:"Mercoledì l'auto non c'è ancora: la ritirate giovedì mattina, quindi niente parcheggio.",
   opts:[{name:"Hostal Vidamia",score:8.0,tot:75},{name:"Goartín",score:8.3,tot:85},{name:"Zenit Málaga",score:8.5,tot:86,pick:1}]},
  ron:{ci:"2027-03-18",co:"2027-03-19",city:"Ronda",nights:1,when:"Gio 18",img:"p_puente_nuevo",note:"In auto non si passa sul Puente Nuevo: l'Hotel Andalucía è già sul lato giusto, per gli altri due verificate lato e parcheggio.",
   opts:[{name:"Hotel Molino",score:8.4,tot:58},{name:"El Tajo & Spa",score:8.2,tot:58},{name:"Hotel Andalucía",bk:"andalucia-ronda",score:8.4,tot:60,pick:1,det:"Avenida Martínez Astein 19, nel Mercadillo vicino alla stazione, sulla stessa via del parcheggio pubblico Martínez Astein: niente Puente Nuevo. Area per scaricare i bagagli e parcheggio su strada facile secondo le recensioni."}]},
- mar:{ci:"2027-03-19",co:"2027-03-21",city:"Marbella",nights:2,when:"Ven 19 e sab 20",img:"p_naranjos",note:"Il casco antiguo è pedonale: auto al Parking Mercado Central o La Alameda.",
-  opts:[{name:"The Old House",score:8.8,tot:160,est:"160 € stimati (80 € per venerdì, raddoppiato)"},{name:"Lucero 12",score:8.9,tot:164,est:"164 € stimati (82 € per venerdì, raddoppiato)"},{name:"Casa Postigos",bk:"casa-postigos",score:9.1,tot:173,pick:1,det:"Verificato: matrimoniale standard da 15 m², 173 € per 2 notti (era 247 €). Parcheggio gratuito nelle vicinanze secondo le recensioni."}]}
+ mar:{ci:"2027-03-19",co:"2027-03-20",city:"Marbella",nights:1,when:"Ven 19",img:"p_naranjos",note:"Il casco antiguo è pedonale: auto al Parking Mercado Central o La Alameda.",
+  opts:[{name:"The Old House",score:8.8,tot:80},{name:"Lucero 12",score:8.9,tot:82},{name:"Casa Postigos",bk:"casa-postigos",score:9.1,tot:87,pick:1,est:"circa 87 € stimati (metà dei 173 € visti per 2 notti)",det:"Matrimoniale standard da 15 m². Parcheggio gratuito nelle vicinanze secondo le recensioni. Prezzo per la sola notte di venerdì da riverificare."}]},
+ mal2:{ci:"2027-03-20",co:"2027-03-21",city:"Malaga",nights:1,when:"Sab 20",img:"p_gibralfaro",note:"Sabato sera auto riconsegnata in aeroporto, poi treno C1 fino al centro (circa 12 minuti). Domenica lo stesso treno vi riporta al volo delle 10:15.",
+  opts:[{name:"Hostal Vidamia",score:8.0,tot:75,est:"circa 75 € stimati (prezzo del mercoledì)"},{name:"Goartín",score:8.3,tot:85,est:"circa 85 € stimati (prezzo del mercoledì)"},{name:"Zenit Málaga",score:8.5,tot:86,pick:1,est:"circa 86 € stimati (prezzo del mercoledì): il sabato può costare di più"}]}
 };
 var Q={
  p1:{ch:"giorni",q:"Che ritmo vi somiglia?",o:[["calm","Con calma","Poche tappe e lunghe pause"],["full","A tutta","Vogliamo vedere tutto"]]},
@@ -492,7 +494,7 @@ var CH={welcome:"Benvenuti",hotel:"Dove dormite",giorni:"I nostri giorni",tavola
 var THEME={hotel:"t-rose",giorni:"t-green",tavola:"t-saffron",botteghe:"t-rose",welcome:"t-paper",fine:"t-ink",consigli:"t-paper",partire:"t-green",appendice:"t-paper",budget:"t-paper"};
 var ALL=[
  {id:"splash"},{id:"welcome",ch:"welcome"},
- {id:"c-hotel",ch:"hotel",cover:["1","Dove dormite","Cinque tappe, tre hotel veri per ognuna. Quelli scelti sono già segnati: con un tocco potete cambiarli e il budget si aggiorna."]},
+ {id:"c-hotel",ch:"hotel",cover:["1","Dove dormite","Sei tappe, tre hotel veri per ognuna. Quelli scelti sono già segnati: con un tocco potete cambiarli e il budget si aggiorna."]},
  {id:"hotels",ch:"hotel"},{id:"budget",ch:"budget"},
  {id:"c-giorni",ch:"giorni",cover:["2","I nostri giorni","Sei domande e la guida degli otto giorni si costruisce sulle vostre risposte."]},
  {id:"p1",q:1},{id:"p2",q:1},{id:"p3",q:1},{id:"p4",q:1},{id:"p5",q:1},{id:"p6",q:1},{id:"r-giorni",ch:"giorni"},{id:"appendice",ch:"appendice"},
@@ -585,9 +587,8 @@ var DAYS=[
      ["gem","Centro Cerámica Triana","I forni originali della fabbrica Santa Ana.","2–3 € a persona",{i:"local"}],
      ["gem","Palacio de las Dueñas","Il palazzo dei duchi d'Alba.","circa 12 € a persona",{x:1,pay:1,i:"storia"}],
      ["in","Flamenco in un tablao piccolo","A pochi metri da chi canta e balla.","prezzo da verificare",{flam:1}]]},
- {d:"Mar 16",t:"La foresta di colonne",th:"Bus EA, auto in aeroporto e un'ora e quaranta verso la capitale del Califfato.",f:"La Mezquita ha circa 850 colonne, molte riutilizzate da templi romani e chiese visigote: guardando bene, nessun capitello è uguale all'altro.",note:"Non entrate in auto nel centro storico: zona ACIRE con telecamere. Auto all'hotel o al Parking Paseo de la Victoria.",lunch:["cor"],dinner:["cor"],
-  s:[["go","Bus EA e ritiro dell'auto in aeroporto","","",{core:1}],
-     ["go","Siviglia → Córdoba, circa 1 ora e 40","","",{core:1}],
+ {d:"Mar 16",t:"La foresta di colonne",th:"Treno di 45 minuti verso la capitale del Califfato, senza auto né parcheggi.",f:"La Mezquita ha circa 850 colonne, molte riutilizzate da templi romani e chiese visigote: guardando bene, nessun capitello è uguale all'altro.",note:"Treni Avant, AVE, Avlo, iryo e Ouigo da Siviglia Santa Justa: circa 12–25 € a testa, prenotate presto.",lunch:["cor"],dinner:["cor"],
+  s:[["go","Treno Siviglia Santa Justa → Córdoba, circa 45 minuti","Circa 12–25 € a testa.","",{core:1}],
      ["in","Mezquita-Catedral","La moschea con la cattedrale dentro.","15 € a persona",{core:1}],
      ["in","Torre campanario","L'ex minareto, turni ogni mezz'ora.","4 € a persona",{pay:1,i:"vista"}],
      ["free","Judería e Calleja de las Flores","Gerani, vicoli bianchi e la torre in fondo.","",{core:1}],
@@ -598,7 +599,7 @@ var DAYS=[
      ["free","Puente Romano al tramonto","La Mezquita che diventa d'oro.","",{core:1}]]},
  {d:"Mer 17",t:"Dalla Mezquita al mare",th:"Sveglia presto per avere la Mezquita quasi tutta per voi, poi giù verso il Mediterraneo.",f:"La Cattedrale di Malaga ha un solo campanile: i soldi per il secondo, nel 1782, sarebbero andati alle colonie americane contro gli inglesi. Per questo la chiamano «la Manquita», la monca.",note:"Alcazaba: ultimo ingresso alle 17:00. Gibralfaro è in cima a una salita ripida: c'è il bus 35.",lunch:["mal"],dinner:["mal"],
   s:[["free","Mezquita all'alba","8:30–9:30, accesso fino alle 9:20.","gratis",{core:1}],
-     ["go","Córdoba → Malaga, circa 2 ore","","",{core:1}],
+     ["go","Treno Córdoba → Malaga María Zambrano, circa 1 ora","Circa 9–40 € a testa: prima prenotate, meno pagate.","",{core:1}],
      ["in","Alcazaba e Gibralfaro","Fortezza, giardini e il porto dall'alto.","10 € a persona",{core:1}],
      ["free","Teatro romano","Ritrovato solo nel 1951.","",{core:1}],
      ["gem","Jardines de Puerta Oscura","Terrazze sotto le mura, quasi vuote.","",{x:1,i:"vista"}],
@@ -608,7 +609,8 @@ var DAYS=[
      ["gem","Barrio del Soho","I murales tra il centro e il porto.","",{x:1,i:"local"}],
      ["free","Calle Larios e Malagueta","Il salotto della città e la spiaggia.","",{core:1}]]},
  {d:"Gio 18",t:"Sospesi sulla gola",cam:1,th:"Il Caminito alle 11:50, poi Ronda al tramonto.",f:"Si chiama «del Rey» perché nel 1921 Alfonso XIII lo percorse per inaugurare la diga: fino ad allora era il sentiero degli operai della centrale.",note:"Al controllo 30 minuti prima delle 11:50, con il documento. La navetta si paga in contanti. A Ronda niente Puente Nuevo in auto.",lunch:["chorro"],dinner:["ron"],
-  s:[["go","09:45 · Malaga → Caminito, circa 1 ora","","",{core:1}],
+  s:[["go","08:30 · Ritiro dell'auto a Malaga","Alla stazione María Zambrano o in aeroporto, pieno/pieno.","",{core:1}],
+     ["go","09:45 · Malaga → Caminito, circa 1 ora","","",{core:1}],
      ["in","Caminito del Rey","7,7 km di passerelle, ingresso alle 11:50.","10 € a persona",{core:1}],
      ["gem","Laghi di Ardales","I bacini turchesi dal mirador.","",{x:1,i:"natura"}],
      ["go","15:30 · Navetta e auto per Ronda, circa 1 ora","","",{core:1}],
@@ -625,7 +627,7 @@ var DAYS=[
      ["gem","Torre del Homenaje","Il castello dei sette assedi.","pochi euro",{x:1,pay:1,i:"storia"}],
      ["go","Setenil → Marbella, circa 1 ora e 15","Strada di montagna con molte curve.","",{core:1}],
      ["free","Prima sera a Marbella","Un giro nel casco antiguo illuminato.","",{core:1}]]},
- {d:"Sab 20",t:"Marbella con calma",th:"Il primo giorno senza valigie: churros in piazza, centro storico bianco, lungomare e Puerto Banús.",f:"Puerto Banús fu inaugurato nel 1970 con ospiti come Grace Kelly. Prima degli anni Cinquanta Marbella era un villaggio di pescatori.",note:"Venerdì e sabato ci sono già processioni minori, anche a Marbella: belle da vedere, ma rallentano il traffico.",lunch:["mar"],dinner:["mar"],breakfast:1,
+ {d:"Sab 20",t:"Marbella, poi Malaga",th:"Churros in piazza, centro storico bianco, lungomare e Puerto Banús. La sera si torna a Malaga e si riconsegna l'auto.",f:"Puerto Banús fu inaugurato nel 1970 con ospiti come Grace Kelly. Prima degli anni Cinquanta Marbella era un villaggio di pescatori.",note:"Venerdì e sabato ci sono già processioni minori, anche a Marbella e Malaga: belle da vedere, ma rallentano il traffico. Pieno prima della riconsegna.",lunch:["mar"],dinner:["mal"],breakfast:1,
   s:[["free","Casco antiguo e Plaza de los Naranjos","Aranci, case bianche e il municipio.","",{core:1}],
      ["gem","Barrio Alto di Marbella","Gerani e l'Ermita del Santo Cristo.","",{i:"local"}],
      ["gem","Parque de la Alameda","Panchine di ceramica sivigliana.","",{x:1,i:"local"}],
@@ -633,13 +635,13 @@ var DAYS=[
      ["free","Puerto Banús","Yacht e il mercatino del sabato mattina.","",{core:1}],
      ["gem","Museo del Grabado Español","Picasso, Miró e Dalí in piccolo.","pochi euro",{sat:"marbella"}],
      ["free","Mijas Pueblo","Il villaggio bianco con la vista sulla costa.","",{sat:"mijas"}],
-     ["gem","Istán e Ojén","Paesi bianchi quasi senza turisti.","",{sat:"istan"}]]},
- {d:"Dom 21",t:"Domenica delle Palme",th:"Partenza presto da Marbella, auto riconsegnata alle 10:30 e Siviglia a piedi nel giorno in cui comincia la Semana Santa. Volo alle 18:15.",f:"I costaleros portano i «pasos» a spalla senza vedere nulla: li guida solo la voce del capataz.",note:"Gli orari esatti delle cofradías vanno controllati sul programma ufficiale della Semana Santa 2027. Dal pomeriggio il centro chiude al traffico: bus EA per l'aeroporto entro le 15:30.",lunch:["sev"],dinner:null,
-  s:[["go","07:30 · Marbella → aeroporto di Siviglia, circa 2 ore e 30","Pieno prima della riconsegna.","",{core:1}],
-     ["go","10:30 · Riconsegna dell'auto e bus EA in centro","","",{core:1}],
-     ["free","Mattina della Domenica delle Palme","Palme benedette e le prime confraternite.","",{core:1}],
-     ["free","Calle Sierpes e ultimi acquisti","Ventagli e yemas della Campana.","",{core:1}],
-     ["go","15:30 · Bus EA per l'aeroporto","Volo Ryanair alle 18:15, a Catania alle 21:05.","",{core:1}]]}
+     ["gem","Istán e Ojén","Paesi bianchi quasi senza turisti.","",{sat:"istan"}],
+     ["go","Marbella → aeroporto di Malaga, circa 45 minuti","Riconsegna dell'auto, poi treno C1 in centro.","",{core:1}],
+     ["free","Ultima sera a Malaga","Tapas in centro e un giro su Calle Larios.","",{core:1}]]},
+ {d:"Dom 21",t:"Si torna a casa",th:"Treno per l'aeroporto, easyJet alle 10:15 e coincidenza a Malpensa. A Catania nel pomeriggio.",f:"Domenica comincia la Semana Santa: i costaleros portano i «pasos» a spalla senza vedere nulla, li guida solo la voce del capataz.",note:"Due biglietti separati: solo bagaglio a mano, così a Malpensa non si ritira nulla. Se il primo volo ritarda, nessuno vi riprotegge sul secondo.",lunch:null,dinner:null,
+  s:[["go","08:30 · Treno C1 per l'aeroporto, circa 12 minuti","","",{core:1}],
+     ["go","10:15 · easyJet Malaga → Malpensa","Arrivo alle 12:50.","",{core:1}],
+     ["go","18:15 · easyJet Malpensa → Catania","Arrivo alle 20:10. In alternativa Ryanair alle 14:55, con meno margine.","",{core:1}]]}
 ];
 var TL={free:"Gratis",in:"Biglietto",out:"Basta da fuori",gem:"Chicca",go:"Spostamento"};
 function planDays(){return DAYS}
@@ -759,8 +761,8 @@ function pageHTML(st){
   if(id==="splash")return '<section class="page splash" data-id="splash">'+TILES+'<div class="col"><p class="who">GIOVANNI &amp; VALENTINA</p><h1 aria-label="Andalusia" class="ttl">Andalusia</h1><p class="when">14 → 21 marzo 2027</p><button type="button" class="btn enter wobble" data-next>Entra</button></div></section>';
   if(id==="grazie")return '<section class="page splash thanks" data-id="grazie">'+TILES.replace(/#iz\)/,"#iz2)").replace('id="iz"','id="iz2"')+'<div class="col"><p class="who">GIOVANNI &amp; VALENTINA · ANDALUSIA</p><h2 class="ttl bye">¡Buen viaje!</h2><p class="when">Buon viaggio, in spagnolo.</p><p class="lede" style="margin:0 auto">Ci vediamo il 14 marzo all\'aeroporto di Catania, alle 9:45.</p><button type="button" class="btn enter" id="toGuide">Torna alla guida</button><button type="button" class="btn quiet" id="toStart" style="color:var(--paper);border-color:var(--paper)">Ricomincia da capo</button></div></section>';
   if(id==="welcome")return '<section class="page t-paper" data-id="welcome"><div class="col"><p class="eyebrow">Benvenuti a bordo</p><p class="names ttl">Giovanni <em>&amp;</em> Valentina</p><p class="lede">Sette notti in Andalusia, dal 14 al 21 marzo. Voli, hotel e itinerario sono decisi: tappe, tavola e botteghe le scegliete voi, una domanda alla volta.</p>'+
-    '<div class="ticket"><div class="legs"><div class="leg"><div class="city">CTA<small>DOM 14 · 09:45</small></div><div class="md">EASYJET<i></i>2 h</div><div class="city r">MXP<small>11:45</small></div></div><div class="leg"><div class="city">MXP<small>DOM 14 · 14:15</small></div><div class="md">RYANAIR<i></i>2 h 35</div><div class="city r">SVQ<small>16:50</small></div></div><div class="leg"><div class="city">SVQ<small>DOM 21 · 18:15</small></div><div class="md">RYANAIR<i></i>2 h 50</div><div class="city r">CTA<small>21:05</small></div></div></div><div class="stub">EASYJET · RYANAIR</div></div>'+
-    '<p class="facts"><span>Scalo a Milano</span><span>Bagaglio piccolo</span><span>Budget circa 625 €</span></p><p class="soft">Stesso fuso orario dell\'Italia. A marzo 15–22 °C, a Ronda la sera fa freddo. Voli visti su Google Voli il 24/11/2026: andata su due biglietti separati, 158 € a testa in tutto.</p>'+
+    '<div class="ticket"><div class="legs"><div class="leg"><div class="city">CTA<small>DOM 14 · 09:45</small></div><div class="md">EASYJET<i></i>2 h</div><div class="city r">MXP<small>11:45</small></div></div><div class="leg"><div class="city">MXP<small>DOM 14 · 14:15</small></div><div class="md">RYANAIR<i></i>2 h 35</div><div class="city r">SVQ<small>16:50</small></div></div><div class="leg"><div class="city">AGP<small>DOM 21 · 10:15</small></div><div class="md">EASYJET<i></i>2 h 35</div><div class="city r">MXP<small>12:50</small></div></div><div class="leg"><div class="city">MXP<small>DOM 21 · 18:15</small></div><div class="md">EASYJET<i></i>1 h 55</div><div class="city r">CTA<small>20:10</small></div></div></div><div class="stub">EASYJET · RYANAIR</div></div>'+
+    '<p class="facts"><span>Scalo a Milano</span><span>Bagaglio piccolo</span><span>Voli, hotel e auto circa 480 €</span></p><p class="soft">Stesso fuso orario dell\'Italia. A marzo 15–22 °C, a Ronda la sera fa freddo. Voli visti su Google Voli il 27/11/2026: andata e ritorno con scalo a Milano, quattro biglietti separati, circa 136 € a testa in tutto.</p>'+
     '<div class="foot"><button type="button" class="btn wide" data-next>Iniziamo</button></div></div></section>';
 
   if(st.cover)return '<section class="page center cover '+THEME[st.ch]+'" data-id="'+id+'"><div class="col"><p class="num-big">'+st.cover[0]+'</p><h2 class="ttl">'+st.cover[1]+'</h2><p class="lede">'+st.cover[2]+'</p><div class="foot"><button type="button" class="btn wide" data-next>Via</button></div></div></section>';
@@ -787,7 +789,7 @@ function renderFine(body){
   body.innerHTML='<p class="eyebrow">Il nostro viaggio</p><h2 class="mid ttl" style="color:var(--saffron)">Giovanni e Valentina in Andalusia.</h2>'+
    '<div>'+rows.map(function(r){return '<p class="srec"><b>'+r[0]+'</b><span>'+esc(r[1])+'</span></p>'}).join("")+'</div>'+
    '<div class="money"><p class="eyebrow">Il conto a testa</p><div class="big num">'+bc.all+' €</div>'+bc.rows.map(function(r){return '<p class="row"><span>'+r[0]+'</span><span class="num">'+r[1]+' €</span></p>'}).join("")+'<p class="soft" style="margin-top:8px">Volo, hotel e auto: '+bc.cap+' € su un tetto di 600 €. Le cifre vengono dal calcolatore del budget.</p></div>'+
-   '<p class="soft">Voli visti su Google Voli e hotel su Booking il 24/11/2026; orari, biglietti e locali verificati a novembre 2026 o da fonti più vecchie. Ricontrollate tutto a febbraio 2027.</p>'+
+   '<p class="soft">Voli e auto visti il 27/11/2026, hotel su Booking il 24/11/2026; orari, biglietti e locali verificati a novembre 2026 o da fonti più vecchie. Ricontrollate tutto a febbraio 2027.</p>'+
    '<details class="more"><summary>Crediti delle foto</summary><div class="inner credits">'+Object.keys(CRED).map(function(k){var c=CRED[k];return '<p class="soft"><b>'+esc(c.title||k)+'</b> · '+esc(c.author)+' · <a href="'+esc(c.licenseUrl||c.source)+'" target="_blank" rel="noopener">'+esc(c.license)+'</a> · <a href="'+esc(c.source)+'" target="_blank" rel="noopener">fonte</a> · ritagliata e ridimensionata</p>'}).join("")+'</div></details>'+
    '<div class="foot"><button type="button" class="btn wide" data-next>Avanti: i consigli</button><button type="button" class="btn quiet" id="restart">Rifai tutto da capo</button></div>';
   $("#restart",body).onclick=function(){A={};save("answers",A);["pick","dishes","shops","swap"].forEach(function(k){save(k,null)});curDay=0;syncAnswers();goTo("welcome")};
@@ -966,11 +968,11 @@ function bstate(){var b=load("budget")||{};if(b.cover===undefined)b.cover=true;i
 function eur(v){return (Math.round(v*100)/100).toFixed(2).replace(".00","").replace(".",",")}
 function budgetCalc(){
   var b=bstate(),P=hotelPicks(),ht=0;CITY.forEach(function(c){ht+=HOTELS[c].opts[P[c]].tot});
-  var fl=158,ho=ht/2,car=(b.cover?220:150)/2,fuel=80/2,park=90/2,bus=12;
+  var fl=136,ho=ht/2,car=(b.cover?90:40)/2,fuel=40/2,park=40/2,bus=10,train=40;
   var tix=TIX.reduce(function(a,t){return a+(b.tix[t[0]]?t[2]:0)},0),meal=b.meal*7;
-  var cap=fl+ho+car+fuel+park,all=cap+bus+tix+meal;
+  var cap=fl+ho+car+fuel+park,all=cap+train+bus+tix+meal;
   return {b:b,cap:Math.round(cap),all:Math.round(all),tix:tix,meal:meal,
-   rows:[["Voli",fl],["Hotel, 7 notti",Math.round(ho)],["Auto 5 giorni"+(b.cover?" con copertura totale":" con assicurazione base"),Math.round(car)],["Carburante",Math.round(fuel)],["Parcheggi",Math.round(park)],["Bus EA",bus],["Ingressi",eur(tix)],["Pasti, 7 giorni",meal]]};
+   rows:[["Voli",fl],["Hotel, 7 notti",Math.round(ho)],["Auto 3 giorni da Malaga"+(b.cover?" con copertura totale":" con assicurazione base"),Math.round(car)],["Carburante",Math.round(fuel)],["Parcheggi",Math.round(park)],["Treni Siviglia → Córdoba → Malaga",train],["Bus EA e treno C1",bus],["Ingressi",eur(tix)],["Pasti, 7 giorni",meal]]};
 }
 function renderBudget(body){
   var b=bstate();
@@ -980,7 +982,7 @@ function renderBudget(body){
    '<p class="soft" id="bCarNote"></p>'+
    '<h3>Ingressi</h3><div class="tixlist">'+TIX.map(function(t){return '<label class="check"><input type="checkbox" data-t="'+t[0]+'"'+(b.tix[t[0]]?' checked':'')+'><span class="txt"><b>'+t[1]+'</b><span>'+eur(t[2])+' € a persona</span></span></label>'}).join("")+'</div>'+
    '<h3>Pasti</h3><label class="range"><span>Al giorno a persona: <b class="num" id="bMealV"></b></span><input type="range" min="20" max="50" step="5" id="bMeal" value="'+b.meal+'" aria-label="Spesa per i pasti al giorno a persona"></label>'+
-   '<p class="soft">Carburante circa 80 € e parcheggi circa 90 € a camera, bus EA 12 € a testa: stime del 24/11/2026.</p>'+
+   '<p class="soft">Carburante circa 40 € e parcheggi circa 40 € a camera, treni circa 40 € e bus urbani circa 10 € a testa: stime del 27/11/2026.</p>'+
    '<div class="foot"><button type="button" class="btn wide" data-next>Avanti: i nostri giorni</button></div>';
   function sync(){var c=budgetCalc(),over=c.cap-600;
     $("#bMoney",body).innerHTML='<p class="eyebrow">Totale a testa</p><div class="big num">'+c.all+' €</div>'+
@@ -988,7 +990,7 @@ function renderBudget(body){
      '<p class="soft" style="margin:6px 0 8px">'+(over>0?'Sopra il tetto di '+over+' €.':'Sotto il tetto di '+(-over)+' €.')+'</p>'+
      c.rows.map(function(r){return '<p class="row"><span>'+r[0]+'</span><span class="num">'+r[1]+' €</span></p>'}).join("");
     $$(".seg button",body).forEach(function(x){x.setAttribute("aria-pressed",String(+x.dataset.cover===(c.b.cover?1:0)))});
-    $("#bCarNote",body).textContent=c.b.cover?"Circa 220 € a camera per 5 giorni, senza franchigia.":"Circa 150 € a camera per 5 giorni, ma con una franchigia di circa 1.000 € in caso di danni.";
+    $("#bCarNote",body).textContent=c.b.cover?"Circa 90 € a camera per 3 giorni, senza franchigia.":"Circa 20–40 € a camera per 3 giorni (Kayak, 27/11/2026), ma con una franchigia di circa 1.000 € in caso di danni.";
     $("#bMealV",body).textContent=c.b.meal+" €";}
   body.onclick=function(e){var x=e.target.closest("[data-cover]");if(x){b.cover=x.dataset.cover==="1";save("budget",b);sync()}};
   body.onchange=function(e){var t=e.target;if(t.dataset&&t.dataset.t){b.tix[t.dataset.t]=t.checked?1:0;save("budget",b);sync()}};
@@ -1063,17 +1065,17 @@ function renderBotteghe(body){
 
 /* =================== CONSIGLI =================== */
 var TIPS=[
- ["In auto","t",[["Ritiro e riconsegna a Siviglia","Martedì 16 il ritiro, domenica 21 la riconsegna, sempre in aeroporto: niente supplemento."],["Centri storici a piedi","Córdoba (zona ACIRE con telecamere), Marbella e Setenil: auto al parcheggio e poi a piedi."],["Ronda: niente Puente Nuevo","Le auto non di Ronda non possono passarci: multa di 70 € più circa 30 € dal noleggiatore."],["Zone a basse emissioni","Un'auto a noleggio recente ha il bollino giusto ed entra; i parcheggi pubblici sono sempre raggiungibili."],["Autostrade","Il percorso consigliato è senza pedaggi. L'AP-7 sulla costa si paga."]]],
+ ["In auto","t",[["Ritiro e riconsegna a Malaga","Giovedì 18 il ritiro, sabato 20 la riconsegna in aeroporto. Ritirare a Siviglia e riconsegnare a Malaga costava 173 € invece di circa 20 €."],["Centri storici a piedi","Marbella e Setenil: auto al parcheggio e poi a piedi."],["Ronda: niente Puente Nuevo","Le auto non di Ronda non possono passarci: multa di 70 € più circa 30 € dal noleggiatore."],["Zone a basse emissioni","Un'auto a noleggio recente ha il bollino giusto ed entra; i parcheggi pubblici sono sempre raggiungibili."],["Autostrade","Il percorso consigliato è senza pedaggi. L'AP-7 sulla costa si paga."]]],
  ["Il noleggio","n",[["Carta di credito","Non di debito né prepagata, intestata a chi guida, con 300–1.500 € liberi per la cauzione."],["Pieno/pieno","Solo «lleno/lleno»: con «pieno/vuoto» pagate il carburante maggiorato."],["Foto e video","Dell'auto al ritiro e alla riconsegna, con chilometri e livello del carburante."],["Franchigia","Con l'assicurazione base si rischiano 1.000–1.500 €: la copertura totale costa 10–25 € al giorno."],["Di chi fidarsi","Sixt, Europcar, Avis, Hertz, Enterprise con il banco in aeroporto. Prudenza con le tariffe troppo basse."]]],
  ["A tavola","m",[["Orari spagnoli","Pranzo 13:30–16, cena 20:30–23. Tra le 16 e le 20 molte cucine sono chiuse."],["Media ración","Per dividere in due senza esagerare."],["Menú del día","A pranzo nei giorni feriali, 12–16 € con primo, secondo e dolce."],["Pane e coperto","A volte il pane è in conto: se non lo volete, si può rifiutare."],["Mance","Non obbligatorie: il resto spicciolo al bar, 5–10% al ristorante se il servizio è stato buono."]]],
- ["Semana Santa","s",[["Domenica 21 sono le Palme","Pasqua 2027 cade il 28 marzo: domenica comincia la settimana santa."],["Già dal 19","Venerdì e sabato ci sono processioni minori, anche a Malaga e Marbella."],["Prove notturne","Tra il 15 e il 20 marzo i costaleros provano di sera: belle da vedere, rallentano il traffico."],["Domenica a Siviglia","Orari delle cofradías sul programma ufficiale 2027. Dal pomeriggio il centro chiude: bus EA entro le 15:30."],["Hotel","Nel fine settimana i prezzi salgono: prenotate presto con cancellazione gratuita."]]],
+ ["Semana Santa","s",[["Domenica 21 sono le Palme","Pasqua 2027 cade il 28 marzo: domenica comincia la settimana santa."],["Già dal 19","Venerdì e sabato ci sono processioni minori, anche a Malaga e Marbella."],["Prove notturne","Tra il 15 e il 20 marzo i costaleros provano di sera: belle da vedere, rallentano il traffico."],["Sabato sera a Malaga","Possibili prove e processioni minori in centro: dall'aeroporto meglio il treno C1 che l'auto."],["Hotel","Nel fine settimana i prezzi salgono: prenotate presto con cancellazione gratuita."]]],
  ["Furbizie","f",[["Il rametto di rosmarino","Davanti alla Cattedrale ve lo regalano, poi chiedono soldi: dite no."],["Le terrazze con le foto","Menu fotografati e paella vicino ai monumenti: si paga il panorama."],["I buttadentro","Intorno alla Mezquita: meglio la Corredera e San Lorenzo."],["Gorrillas","A Ronda chi vi «aiuta» a parcheggiare chiede la mancia: usate i parcheggi ufficiali."],["Flamenco con cena","Gli spettacoli per turisti valgono poco: meglio un tablao piccolo o una peña."]]],
  ["Da local","l",[["Cinque parole","Hola, gracias, por favor, la cuenta, ¡qué bonito!"],["Il caffè a Malaga","Al Café Central si ordina con la scala malagueña: sombra, nube, mitad."],["Tapas al bancone","Si ordina al banco e si paga alla fine: a volte il conto lo scrivono col gesso."],["Telefono","Siete nell'Unione europea: il roaming è incluso nel vostro piano."],["Prese","Uguali alle nostre: niente adattatore."]]]
 ];
 function partireGroups(){
   var P=hotelPicks(),flam=A.p5==="yes";
   var bag=[["Scarpe da trekking chiuse","Obbligatorie sul Caminito: niente sandali."],["Impermeabile leggero","Sul Caminito gli ombrelli sono vietati."],["Piumino leggero","A Ronda e Setenil la sera si va verso i 5 °C."],["Borraccia da 1 litro","Sul Caminito non ci sono acqua né bagni."],["Contanti","2,50 € a testa per la navetta del Caminito e per i bar di quartiere."],["Solo il bagaglio piccolo","Controllate misure easyJet e Ryanair. Niente liquidi oltre 100 ml."]];
-  var book=[["Caminito del Rey, subito","Giovedì 18, ingresso generale alle 11:50 (al 24/11/2026 era l'unica fascia del mattino rimasta), più parcheggio da 2 €."],["Real Alcázar","Lunedì 15, fascia delle 9:30."],["Cattedrale di Siviglia","Online: 1 € in meno e niente coda."],["Hotel con cancellazione gratuita",CITY.map(function(c){return HOTELS[c].opts[P[c]].name}).join(", ")+"."],["Auto dal 16 al 21","Ritiro e riconsegna all'aeroporto di Siviglia, copertura totale, pieno/pieno."],["I tre voli","easyJet Catania → Malpensa e Ryanair Malpensa → Siviglia sono biglietti separati: se perdete la coincidenza nessuno vi riprotegge."]];
+  var book=[["Caminito del Rey, subito","Giovedì 18, ingresso generale alle 11:50 (al 24/11/2026 era l'unica fascia del mattino rimasta), più parcheggio da 2 €."],["Real Alcázar","Lunedì 15, fascia delle 9:30."],["Cattedrale di Siviglia","Online: 1 € in meno e niente coda."],["Hotel con cancellazione gratuita",CITY.map(function(c){return HOTELS[c].opts[P[c]].name}).join(", ")+"."],["Treni","Siviglia → Córdoba martedì 16 e Córdoba → Malaga mercoledì 17: prima prenotate, meno pagate."],["Auto dal 18 al 20","Ritiro a Malaga giovedì mattina, riconsegna all'aeroporto di Malaga sabato sera, copertura totale, pieno/pieno."],["I quattro voli","Andata easyJet Catania → Malpensa e Ryanair Malpensa → Siviglia, ritorno easyJet Malaga → Malpensa → Catania: biglietti separati, se perdete la coincidenza nessuno vi riprotegge."]];
   if(flam)book.push(["Flamenco","Un tablao piccolo per lunedì sera."]);
   return [["Documenti","doc",[["Carta d'identità valida","Basta per la Spagna."],["Tessera sanitaria europea","La TEAM vale in Spagna."],["Patente","Per il noleggio, insieme alla carta di credito."],["Carta di credito","Intestata a chi guida, per la cauzione dell'auto."]]],["Valigia","bag",bag],["Telefono","tel",[["Roaming UE","Incluso: niente eSIM."],["Google Maps offline","Scaricate la Serranía di Ronda: in alcune valli non c'è segnale."],["Biglietti nel telefono","Caminito, Alcázar e carte d'imbarco."],["Orari ufficiali","Una settimana prima ricontrollate Alcázar, Mezquita e Caminito."]]],["Da prenotare","book",book]];
 }
